@@ -14,47 +14,49 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text: 'What are the different ways to declare a JS variable?',
+      text: 'What was the first game in "Squid Game"?',
       answers: {
-        a: 'constant, let, variable',
-        b: 'var, const, let, function',
-        c: 'var, let, const',
-      },
-      correct: 'c',
-      selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
-    },
-    {
-      text: 'What does `typeof` do?',
-      answers: {
-        a: 'changes the type of a primitive value',
-        b: 'returns a string describing the type of a value',
-        c: 'determines if a value is primitive',
-        d: 'can tell the difference between arrays and objects',
+        a: 'Tug of War',
+        b: 'Red Light, Green Light',
+        c: 'Dodgeball',
+        d: 'Ladder',
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
+      links: {
+        text: 'All Squid Game Games In Order',
+        href: 'https://screenrant.com/squid-game-in-order-origin-meaning/#:~:text=Ddakji%20is%20the%20first%20of%20all%20the%20Squid%20Games%20games%20in%20order.&text=Ddakji%20is%20arguably%20the%20most,1990s%20game%20known%20as%20Pogs.',
+      },
     },
-    // Add more questions here
+    {
+      text: 'In "The Mandalorian", what is the real name of "Baby Yoda"?',
+      answers: {
+        a: 'Yaddle',
+        b: 'Yoda',
+        c: 'Grogu',
+        d: 'Yodito',
+      },
+      correct: 'c',
+      selected: null,
+      links: {
+        text: 'StarWars fandom',
+        link: 'https://starwars.fandom.com/wiki/Din_Grogu',
+      },
+    },
+    {
+      text: 'In "Breaking Bad", what is the street name that Walter White uses in his drug trade?',
+      answers: {
+        a: 'Heisenberg',
+        b: 'Walter White Jr.',
+        c: 'Blue King',
+        d: 'Jesse Pinkman',
+      },
+      correct: 'a',
+      selected: null,
+      links: {
+        text: 'Wikipedia',
+        href: 'https://en.wikipedia.org/wiki/Breaking_Bad#:~:text=Initially%20making%20only%20small%20batches,Heisenberg%22%20to%20mask%20his%20identity.',
+      },
+    },
   ],
 };
