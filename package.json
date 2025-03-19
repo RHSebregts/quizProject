@@ -1,0 +1,21 @@
+{
+  "name": "js-quiz-starter",
+  "version": "1.0.0",
+  "scripts": {
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackYourFuture/browser-quiz-project-starter.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HackYourFuture/browser-quiz-project-starter/issues"
+  },
+  "homepage": "https://github.com/HackYourFuture/browser-quiz-project-starter",
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}
