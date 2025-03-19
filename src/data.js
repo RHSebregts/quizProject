@@ -14,47 +14,65 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text: 'What are the different ways to declare a JS variable?',
+      text: 'Who wrote score for Tenet?',
       answers: {
-        a: 'constant, let, variable',
-        b: 'var, const, let, function',
-        c: 'var, let, const',
-      },
-      correct: 'c',
-      selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
-    },
-    {
-      text: 'What does `typeof` do?',
-      answers: {
-        a: 'changes the type of a primitive value',
-        b: 'returns a string describing the type of a value',
-        c: 'determines if a value is primitive',
-        d: 'can tell the difference between arrays and objects',
+        a: 'Hans Zimmer',
+        b: 'Ludwig Göransson',
+        c: 'Trent Reznor',
+        d: 'Lil Nas X',
       },
       correct: 'b',
       selected: null,
       links: [
         {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
+          text: 'Wikipedia',
+          href: 'https://nl.wikipedia.org/wiki/Tenet_(soundtrack)',
         },
         {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+          text: 'Listen on Spotify',
+          href: 'https://open.spotify.com/playlist/5Td2FXZJ889fUJshGgcFkT?si=1fc22ea4a4884aff',
         },
       ],
     },
+    {
+      text: 'Who directed modern adaptations of Dune and Blade Runner?',
+      answers: {
+        a: 'Denis Villeneuve',
+        b: 'Christopher Nolan',
+        c: 'Timothée Chalamet',
+        d: 'James Mangold',
+      },
+      correct: 'a',
+      selected: null,
+      links: [
+        {
+          text: 'Wikipedia',
+          href: 'https://en.wikipedia.org/wiki/Denis_Villeneuve',
+        }
+      ],
+    },
+    {
+      text: 'What is the main song from Cyberpunk: Edgerunners?',
+      answers: {
+        a: 'Billie Eilish - BIRDS OF A FEATHER',
+        b: 'The Cure - Boys Don\'t Cry',
+        c: 'Eels - I Need Some Sleep',
+        d: 'Hallie Coggins, Rosa Walton - Really Want to Stay in Your House',
+      },
+      correct: 'd',
+      selected: null,
+      links: [
+        {
+          text: 'Spotify',
+          href: 'https://open.spotify.com/track/7mykoq6R3BArsSpNDjFQTm?si=c95eba373d1d4394',
+        },
+        {
+          text: 'YouTube',
+          href:
+              'https://www.youtube.com/watch?v=KvMY1uzSC1E&ab_channel=Netflix',
+        },
+      ],
+    }
     // Add more questions here
   ],
 };
