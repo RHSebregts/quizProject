@@ -55,7 +55,7 @@ export const quizData = {
       text: 'What is the main song from Cyberpunk: Edgerunners?',
       answers: {
         a: 'Billie Eilish - BIRDS OF A FEATHER',
-        b: 'The Cure - Boys Don\'t Cry,
+        b: 'The Cure - Boys Don\'t Cry',
         c: 'Eels - I Need Some Sleep',
         d: 'Hallie Coggins, Rosa Walton - Really Want to Stay in Your House',
       },
