@@ -14,47 +14,81 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text: 'What are the different ways to declare a JS variable?',
+      text: 'What is the best movie trilogy? (According to IMDB)',
       answers: {
-        a: 'constant, let, variable',
-        b: 'var, const, let, function',
-        c: 'var, let, const',
+        a: 'The Lord of the Rings',
+        b: 'Star Wars (any of the 3)',
+        c: 'The Matrix',
+        d: 'The Godfather',
+      },
+      correct: 'a',
+      selected: null,
+      links: [
+        {
+          text: 'The Lord of the Rings IMDB',
+          href: 'https://www.imdb.com/list/ls005053232/',
+        },
+        {
+          text: 'Star Wars IMDB',
+          href: 'https://www.imdb.com/list/ls084684940/',
+        },
+        {
+          text: 'The Matrix IMDB',
+          href: 'https://www.imdb.com/list/ls041070228/',
+        },
+        {
+          text: 'The Godfather IMDB',
+          href: 'https://www.imdb.com/list/ls068557785/',
+        },
+      ],
+    },
+    {
+      text:
+        'What movie/show is the best adoptation of a videogame? (According to IMDB)',
+      answers: {
+        a: 'The Witcher',
+        b: 'Super Mario Bros.',
+        c: 'The Last of Us',
+        d: 'Mortal Kombat',
+      },
+      correct: 'C',
+      selected: null,
+      links: [
+        {
+          text: 'The Witcher IMDB',
+          href: 'https://www.imdb.com/title/tt5180504/',
+        },
+        {
+          text: 'Mortal Kombat IMDB',
+          href: 'https://www.imdb.com/title/tt0293429/',
+        },
+        {
+          text: 'The Last of Us IMDB',
+          href: 'https://www.imdb.com/title/tt3581920/',
+        },
+        {
+          text: 'Super Mario Bros. IMDB',
+          href: 'https://www.imdb.com/title/tt6718170/',
+        },
+      ],
+    },
+    {
+      text:
+        'How many installements are there in the Fast and Furious franchise?',
+      answers: {
+        a: '8',
+        b: '9',
+        c: '10',
+        d: '11',
       },
       correct: 'c',
       selected: null,
       links: [
         {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
+          text: 'IMDB',
+          href: 'https://www.imdb.com/list/ls068935667/',
         },
       ],
     },
-    {
-      text: 'What does `typeof` do?',
-      answers: {
-        a: 'changes the type of a primitive value',
-        b: 'returns a string describing the type of a value',
-        c: 'determines if a value is primitive',
-        d: 'can tell the difference between arrays and objects',
-      },
-      correct: 'b',
-      selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
-    },
-    // Add more questions here
   ],
 };
