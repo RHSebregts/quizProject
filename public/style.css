@@ -1,3 +1,93 @@
+html {
+  font-size: 62.5% !important; /* this makes REM equal to 10px */
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+body {
+  background-color: #212020;
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 6.2rem;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+#name-label {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 4.5rem auto;
+}
+
+#user-interface {
+  border: #b51313 solid 0.2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 3rem 0.1rem #b51313;
+  color: white;
+  padding: 7.5rem 12.2rem 10rem 12.2rem;
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto 22.9rem;
+}
+
+input {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 2.3rem;
+  border: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::placeholder {
+  color: black;
+  font-weight: 200;
+}
+
+#month-of-birth {
+  margin-left: 2.9rem;
+  margin-right: 2.9rem;
+}
+
+#user-name {
+  grid-column: 1/4;
+}
+
+#start-quiz-button {
+  grid-column: 1/4;
+  background-color: #b51313;
+  color: white;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  border: none;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.display-block {
+  display: block;
+}
+
 .centered {
   position: fixed;
   top: 50%;
