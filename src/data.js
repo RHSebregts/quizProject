@@ -1,17 +1,5 @@
-/* Program Data
-
-  in this file you can declare variables to store important data for your program
-  the data can only be primitives, objects or arrays
-  do not store dom elements in these variables!!!!
-
-  these variables will be imported by your handlers when necessary
-    not by your logic
-    not by your listeners
-*/
-
 export const quizData = {
   currentQuestionIndex: 0,
-  // the questions in the quiz
   questions: [
     {
       text: 'What is the best movie trilogy? (According to IMDB)',
@@ -88,6 +76,18 @@ export const quizData = {
         },
       ],
     },
+    {
+      text: 'In which movie did Leonardo DiCaprio finally win his first Academy Award for Best Actor?',
+      answers: {
+              a: 'The Revenant',
+              b: 'The Inception',
+              c: 'What’s Eating Gilbert Grape',
+              d: 'Once Upon a Time in Hollywood',
+       },
+      correct: 'a',
+      selected: null,
+    },
+    
     {
       text: 'In the TV series Breaking Bad, what is the real name of the character known as "Heisenberg"?',
       answers: {
@@ -231,5 +231,31 @@ export const quizData = {
         href: 'https://en.wikipedia.org/wiki/Breaking_Bad#:~:text=Initially%20making%20only%20small%20batches,Heisenberg%22%20to%20mask%20his%20identity.',
       },
     },
+    {
+      text: 'What is the name of the coffee shop where the main characters of Friends often hang out?',
+      answers: {
+              a: 'Starbucks',
+              b: 'Central Perk',
+              c: 'Peets Coffee',
+              d: 'Lavazza',
+      },
+      correct: 'b',
+      selected: null,
+      
+    },
+
+    {
+      text: 'Which type of cancer has Walter White been treated for?',
+      answers: {
+              a: 'Colon Cancer',
+              b: 'Leukemia',
+              c: 'Brain Cancer',
+              d: 'Lung Cancer',
+      },
+      correct: 'd',
+      selected: null,
+    },
+ 
+ 
   ],
 };
