@@ -1,95 +1,40 @@
 export const quizData = {
   currentQuestionIndex: 0,
+  score: 0,
   questions: [
     {
-      text: 'What is the best movie trilogy? (According to IMDB)',
-      answers: {
-        a: 'The Lord of the Rings',
-        b: 'Star Wars (any of the 3)',
-        c: 'The Matrix',
-        d: 'The Godfather',
-      },
-      correct: 'a',
-      selected: null,
-      links: [
-        {
-          text: 'The Lord of the Rings IMDB',
-          href: 'https://www.imdb.com/list/ls005053232/',
-        },
-        {
-          text: 'Star Wars IMDB',
-          href: 'https://www.imdb.com/list/ls084684940/',
-        },
-        {
-          text: 'The Matrix IMDB',
-          href: 'https://www.imdb.com/list/ls041070228/',
-        },
-        {
-          text: 'The Godfather IMDB',
-          href: 'https://www.imdb.com/list/ls068557785/',
-        },
-      ],
-    },
-    {
-      text: 'What movie/show is the best adoptation of a videogame? (According to IMDB)',
-      answers: {
-        a: 'The Witcher',
-        b: 'Super Mario Bros.',
-        c: 'The Last of Us',
-        d: 'Mortal Kombat',
-      },
-      correct: 'C',
-      selected: null,
-      links: [
-        {
-          text: 'The Witcher IMDB',
-          href: 'https://www.imdb.com/title/tt5180504/',
-        },
-        {
-          text: 'Mortal Kombat IMDB',
-          href: 'https://www.imdb.com/title/tt0293429/',
-        },
-        {
-          text: 'The Last of Us IMDB',
-          href: 'https://www.imdb.com/title/tt3581920/',
-        },
-        {
-          text: 'Super Mario Bros. IMDB',
-          href: 'https://www.imdb.com/title/tt6718170/',
-        },
-      ],
-    },
-    {
-      text: 'How many installements are there in the Fast and Furious franchise?',
+      text:
+        'How many installements are there in the Fast and Furious franchise?',
       answers: {
         a: '8',
         b: '9',
         c: '10',
         d: '11',
       },
-      correct: 'c',
+      correct: 'd',
       selected: null,
-      links: [
-        {
-          text: 'IMDB',
-          href: 'https://www.imdb.com/list/ls068935667/',
-        },
-      ],
+      explanation:
+        'There are 11 installments in the Fast & Furious franchise, including 10 main films (The Fast and the Furious to Fast X) and one spin-off (Hobbs & Shaw)',
     },
+
     {
-      text: 'In which movie did Leonardo DiCaprio finally win his first Academy Award for Best Actor?',
+      text:
+        'For which movie did Leonardo DiCaprio finally win his first Academy Award for Best Actor?',
       answers: {
-              a: 'The Revenant',
-              b: 'The Inception',
-              c: 'What’s Eating Gilbert Grape',
-              d: 'Once Upon a Time in Hollywood',
-       },
+        a: 'The Revenant',
+        b: 'The Inception',
+        c: 'What’s Eating Gilbert Grape',
+        d: 'Once Upon a Time in Hollywood',
+      },
       correct: 'a',
       selected: null,
+      explanation:
+        'Leonardo DiCaprio won his first Academy Award for Best Actor for the movie "The Revenant" (2015) at the 88th Academy Awards in 2016.',
     },
-    
+
     {
-      text: 'In the TV series Breaking Bad, what is the real name of the character known as "Heisenberg"?',
+      text:
+        'In the TV series Breaking Bad, what is the real name of the character known as "Heisenberg"?',
       answers: {
         a: 'Jesse Pinkman',
         b: 'Walter White',
@@ -101,8 +46,10 @@ export const quizData = {
       explanation:
         'Walter White, played by Bryan Cranston, is the main character in Breaking Bad. He adopts the alias "Heisenberg" as he transforms from a high school chemistry teacher into a feared drug kingpin',
     },
+
     {
-      text: "What is the name of the fictional metal used to make Captain America's shield in the Marvel Cinematic Universe?",
+      text:
+        "What is the name of the fictional metal used to make Captain America's shield in the Marvel Cinematic Universe?",
       answers: {
         a: 'Adamantium',
         b: 'Unobtainium',
@@ -114,6 +61,7 @@ export const quizData = {
       explanation:
         "Vibranium is a rare and powerful metal in the Marvel Cinematic Universe (MCU). Captain America's shield is made from it, and it originates from the fictional African nation of Wakanda, which plays a major role in Black Panther.",
     },
+
     {
       text: 'Which TV series is known for the famous line, "Winter is Coming"?',
       answers: {
@@ -127,6 +75,7 @@ export const quizData = {
       explanation:
         'Winter is Coming is one of the most iconic phrases from Game of Thrones. It is the motto of House Stark and serves as a warning about the harsh winters in Westeros, as well as the coming threats beyond the Wall.',
     },
+
     {
       text: 'Who wrote score for Tenet?',
       answers: {
@@ -137,17 +86,10 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: 'Wikipedia',
-          href: 'https://nl.wikipedia.org/wiki/Tenet_(soundtrack)',
-        },
-        {
-          text: 'Listen on Spotify',
-          href: 'https://open.spotify.com/playlist/5Td2FXZJ889fUJshGgcFkT?si=1fc22ea4a4884aff',
-        },
-      ],
+      explanation:
+        'The score for Tenet (2020) was composed by Ludwig Göransson',
     },
+
     {
       text: 'Who directed modern adaptations of Dune and Blade Runner?',
       answers: {
@@ -158,13 +100,10 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
-      links: [
-        {
-          text: 'Wikipedia',
-          href: 'https://en.wikipedia.org/wiki/Denis_Villeneuve',
-        },
-      ],
+      explanation:
+        'The modern adaptations of Dune (2021, 2024) and Blade Runner 2049 (2017) were directed by Denis Villeneuve',
     },
+
     {
       text: 'What is the main song from Cyberpunk: Edgerunners?',
       answers: {
@@ -175,17 +114,10 @@ export const quizData = {
       },
       correct: 'd',
       selected: null,
-      links: [
-        {
-          text: 'Spotify',
-          href: 'https://open.spotify.com/track/7mykoq6R3BArsSpNDjFQTm?si=c95eba373d1d4394',
-        },
-        {
-          text: 'YouTube',
-          href: 'https://www.youtube.com/watch?v=KvMY1uzSC1E&ab_channel=Netflix',
-        },
-      ],
+      explanation:
+        'The main song from Cyberpunk: Edgerunners is "I Really Want to Stay at Your House" by Rosa Walton (of the band Let’s Eat Grandma)',
     },
+
     {
       text: 'What was the first game in "Squid Game"?',
       answers: {
@@ -196,11 +128,10 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      links: {
-        text: 'All Squid Game Games In Order',
-        href: 'https://screenrant.com/squid-game-in-order-origin-meaning/#:~:text=Ddakji%20is%20the%20first%20of%20all%20the%20Squid%20Games%20games%20in%20order.&text=Ddakji%20is%20arguably%20the%20most,1990s%20game%20known%20as%20Pogs.',
-      },
+      explanation:
+        'The first game in Squid Game was "Red Light, Green Light", where players had to move toward a finish line while a giant robotic doll monitored them',
     },
+
     {
       text: 'In "The Mandalorian", what is the real name of "Baby Yoda"?',
       answers: {
@@ -211,51 +142,37 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      links: {
-        text: 'StarWars fandom',
-        link: 'https://starwars.fandom.com/wiki/Din_Grogu',
-      },
+      explanation:
+        ' The name was revealed in The Mandalorian Season 2, Episode 5, during a conversation between Grogu and Ahsoka Tano',
     },
+
     {
-      text: 'In "Breaking Bad", what is the street name that Walter White uses in his drug trade?',
+      text:
+        'What is the name of the coffee shop where the main characters of Friends often hang out?',
       answers: {
-        a: 'Heisenberg',
-        b: 'Walter White Jr.',
-        c: 'Blue King',
-        d: 'Jesse Pinkman',
-      },
-      correct: 'a',
-      selected: null,
-      links: {
-        text: 'Wikipedia',
-        href: 'https://en.wikipedia.org/wiki/Breaking_Bad#:~:text=Initially%20making%20only%20small%20batches,Heisenberg%22%20to%20mask%20his%20identity.',
-      },
-    },
-    {
-      text: 'What is the name of the coffee shop where the main characters of Friends often hang out?',
-      answers: {
-              a: 'Starbucks',
-              b: 'Central Perk',
-              c: 'Peets Coffee',
-              d: 'Lavazza',
+        a: 'Starbucks',
+        b: 'Central Perk',
+        c: 'Peets Coffee',
+        d: 'Lavazza',
       },
       correct: 'b',
       selected: null,
-      
+      explanation:
+        'The name of the coffee shop where the main characters of Friends often hang out is Central Perk',
     },
 
     {
       text: 'Which type of cancer has Walter White been treated for?',
       answers: {
-              a: 'Colon Cancer',
-              b: 'Leukemia',
-              c: 'Brain Cancer',
-              d: 'Lung Cancer',
+        a: 'Colon Cancer',
+        b: 'Leukemia',
+        c: 'Brain Cancer',
+        d: 'Lung Cancer',
       },
       correct: 'd',
       selected: null,
+      explanation:
+        'Walter White, the main character from Breaking Bad, has been treated for lung cancer',
     },
- 
- 
   ],
 };
