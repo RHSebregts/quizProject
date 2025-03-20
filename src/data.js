@@ -43,7 +43,8 @@ export const quizData = {
       ],
     },
     {
-      text: 'What movie/show is the best adoptation of a videogame? (According to IMDB)',
+      text:
+        'What movie/show is the best adoptation of a videogame? (According to IMDB)',
       answers: {
         a: 'The Witcher',
         b: 'Super Mario Bros.',
@@ -72,7 +73,8 @@ export const quizData = {
       ],
     },
     {
-      text: 'How many installements are there in the Fast and Furious franchise?',
+      text:
+        'How many installements are there in the Fast and Furious franchise?',
       answers: {
         a: '8',
         b: '9',
