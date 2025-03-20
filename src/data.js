@@ -3,7 +3,8 @@ export const quizData = {
   score: 0,
   questions: [
     {
-      text: 'How many installements are there in the Fast and Furious franchise?',
+      text:
+        'How many installements are there in the Fast and Furious franchise?',
       answers: {
         a: '8',
         b: '9',
@@ -17,7 +18,8 @@ export const quizData = {
     },
 
     {
-      text: 'For which movie did Leonardo DiCaprio finally win his first Academy Award for Best Actor?',
+      text:
+        'For which movie did Leonardo DiCaprio finally win his first Academy Award for Best Actor?',
       answers: {
         a: 'The Revenant',
         b: 'The Inception',
@@ -31,7 +33,8 @@ export const quizData = {
     },
 
     {
-      text: 'In the TV series Breaking Bad, what is the real name of the character known as "Heisenberg"?',
+      text:
+        'In the TV series Breaking Bad, what is the real name of the character known as "Heisenberg"?',
       answers: {
         a: 'Jesse Pinkman',
         b: 'Walter White',
@@ -45,7 +48,8 @@ export const quizData = {
     },
 
     {
-      text: "What is the name of the fictional metal used to make Captain America's shield in the Marvel Cinematic Universe?",
+      text:
+        "What is the name of the fictional metal used to make Captain America's shield in the Marvel Cinematic Universe?",
       answers: {
         a: 'Adamantium',
         b: 'Unobtainium',
@@ -143,7 +147,8 @@ export const quizData = {
     },
 
     {
-      text: 'What is the name of the coffee shop where the main characters of Friends often hang out?',
+      text:
+        'What is the name of the coffee shop where the main characters of Friends often hang out?',
       answers: {
         a: 'Starbucks',
         b: 'Central Perk',
