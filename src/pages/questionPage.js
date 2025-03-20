@@ -55,7 +55,23 @@ const selectAnswer = (event, currentQuestion) => {
 const checkAnswer = (event, currentQuestion) => {
   const selectedAnswer = selectAnswer(event, currentQuestion);
   if (!selectedAnswer) return; // if the answer selected -> function selectAnswer return undefined, so nothing will happen;
-  if (selectAnswer === currentQuestion.correct) {
-    console.log('correct');
-  } else console.log('incorrect');
+  if (selectedAnswer === currentQuestion.correct) {
+    showCorrectAnswer(selectedAnswer);
+    quizData.score += 10;
+  } else {
+    showIncorrectAnswer(selectedAnswer);
+    showCorrectAnswer(currentQuestion.correct);
+  }
+};
+
+const showCorrectAnswer = (correctAnswer) => {
+  document
+    .querySelector(`li[data-key="${correctAnswer}"]`)
+    .classList.add('correct');
+};
+
+const showIncorrectAnswer = (selectedAnswer) => {
+  document
+    .querySelector(`li[data-key="${selectedAnswer}"]`)
+    .classList.add('incorrect');
 };
