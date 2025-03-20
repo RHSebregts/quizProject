@@ -30,7 +30,8 @@ export const quizData = {
         },
         {
           text: 'Listen on Spotify',
-          href: 'https://open.spotify.com/playlist/5Td2FXZJ889fUJshGgcFkT?si=1fc22ea4a4884aff',
+          href:
+            'https://open.spotify.com/playlist/5Td2FXZJ889fUJshGgcFkT?si=1fc22ea4a4884aff',
         },
       ],
     },
@@ -48,14 +49,14 @@ export const quizData = {
         {
           text: 'Wikipedia',
           href: 'https://en.wikipedia.org/wiki/Denis_Villeneuve',
-        }
+        },
       ],
     },
     {
       text: 'What is the main song from Cyberpunk: Edgerunners?',
       answers: {
         a: 'Billie Eilish - BIRDS OF A FEATHER',
-        b: 'The Cure - Boys Don\'t Cry',
+        b: "The Cure - Boys Don't Cry",
         c: 'Eels - I Need Some Sleep',
         d: 'Hallie Coggins, Rosa Walton - Really Want to Stay in Your House',
       },
@@ -64,15 +65,16 @@ export const quizData = {
       links: [
         {
           text: 'Spotify',
-          href: 'https://open.spotify.com/track/7mykoq6R3BArsSpNDjFQTm?si=c95eba373d1d4394',
+          href:
+            'https://open.spotify.com/track/7mykoq6R3BArsSpNDjFQTm?si=c95eba373d1d4394',
         },
         {
           text: 'YouTube',
           href:
-              'https://www.youtube.com/watch?v=KvMY1uzSC1E&ab_channel=Netflix',
+            'https://www.youtube.com/watch?v=KvMY1uzSC1E&ab_channel=Netflix',
         },
       ],
-    }
+    },
     // Add more questions here
   ],
 };
