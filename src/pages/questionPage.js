@@ -18,6 +18,8 @@ export const initQuestionPage = () => {
   userInterface.appendChild(questionElement);
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+    nextQuestionButton.disabled = true;
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
@@ -26,11 +28,10 @@ export const initQuestionPage = () => {
 
   answersListElement.addEventListener('click', (event) => {
     checkAnswer(event, currentQuestion);
+    nextQuestionButton.disabled = false;
   });
 
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
+  nextQuestionButton.addEventListener('click', nextQuestion);
 };
 
 const nextQuestion = () => {
@@ -49,6 +50,7 @@ const selectAnswer = (event, currentQuestion) => {
   // Set the selected answer and add the 'selected' class
   currentQuestion.selected = answerKey;
   answerElement.classList.add('selected');
+
   return answerKey;
 };
 
