@@ -24,10 +24,11 @@ export const quizData = {
       correct: 'a',
       selected: null,
       links: [
-      {
+        {
           text: 'The Lord of the Rings IMDB',
           href: 'https://www.imdb.com/list/ls005053232/',
-        },      {
+        },
+        {
           text: 'Star Wars IMDB',
           href: 'https://www.imdb.com/list/ls084684940/',
         },
@@ -38,7 +39,7 @@ export const quizData = {
         {
           text: 'The Godfather IMDB',
           href: 'https://www.imdb.com/list/ls068557785/',
-        }
+        },
       ],
     },
     {
@@ -58,8 +59,7 @@ export const quizData = {
         },
         {
           text: 'Mortal Kombat IMDB',
-          href:
-            'https://www.imdb.com/title/tt0293429/',
+          href: 'https://www.imdb.com/title/tt0293429/',
         },
         {
           text: 'The Last of Us IMDB',
@@ -68,8 +68,7 @@ export const quizData = {
         {
           text: 'Super Mario Bros. IMDB',
           href: 'https://www.imdb.com/title/tt6718170/',
-        }
-
+        },
       ],
     },
     {
