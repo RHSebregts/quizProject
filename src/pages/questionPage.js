@@ -56,6 +56,6 @@ const checkAnswer = (event, currentQuestion) => {
   const selectedAnswer = selectAnswer(event, currentQuestion);
   if (!selectedAnswer) return; // if the answer selected -> function selectAnswer return undefined, so nothing will happen;
   if (selectAnswer === currentQuestion.correct) {
-    console.log('right');
-  } else console.log('false');
+    console.log('correct');
+  } else console.log('incorrect');
 };
