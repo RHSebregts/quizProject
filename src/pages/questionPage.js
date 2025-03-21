@@ -42,13 +42,18 @@ export const initQuestionPage = () => {
     checkAnswer(event, currentQuestion);
     nextQuestionButton.disabled = false;
   });
+
   nextQuestionButton.addEventListener('click', nextQuestion);
+
+  saveState();
+  loadState();
 };
 
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
+  saveState();
 };
 
 const selectAnswer = (event, currentQuestion) => {
@@ -76,8 +81,7 @@ const checkAnswer = (event, currentQuestion) => {
     showCorrectAnswer(currentQuestion.correct);
   }
 
-  // Activate Next Question button
-  document.querySelector(`#${NEXT_QUESTION_BUTTON_ID}`).disabled = false;
+  saveState();
 };
 
 const showCorrectAnswer = (correctAnswer) => {
@@ -94,4 +98,17 @@ const showIncorrectAnswer = (selectedAnswer) => {
   document
     .querySelector(`#${QUESTION_EXPLANATION_ID}`)
     .classList.add('visible');
+};
+
+const saveState = () => {
+  localStorage.setItem('currentIndex', quizData.currentQuestionIndex);
+  localStorage.setItem('currentScore', quizData.score);
+};
+
+const loadState = () => {
+  const savedIndex = localStorage.getItem('currentIndex');
+  const savedScore = localStorage.getItem('currentScore');
+
+  quizData.currentQuestionIndex = savedIndex ? parseInt(savedIndex) : 0;
+  quizData.score = savedScore ? parseInt(savedScore) : 0;
 };
