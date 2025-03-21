@@ -4,6 +4,7 @@ import {
   QUESTION_NUMBER_ID,
   ANSWERS_LIST_ID,
   PROGRESS_BAR_ID,
+  RESTART_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
   CURRENT_SCORE_ID,
@@ -39,13 +40,9 @@ export const createQuestionElement = (question) => {
     <div id="${PROGRESS_BAR_ID}">Progress bar goes here</div>
 
     <div id="score-buttons-container">
-      <button id="${SKIP_QUESTION_BUTTON_ID}">
-        Skip Question
-      </button>
-
-      <button id="${NEXT_QUESTION_BUTTON_ID}" disabled>
-        Next Question
-      </button>
+      <button id="${RESTART_BUTTON_ID}">Restart the quiz</button>
+      <button id="${SKIP_QUESTION_BUTTON_ID}">Skip Question</button>
+      <button id="${NEXT_QUESTION_BUTTON_ID}" disabled>Next Question</button>
 
       <p>Score: <span id="${CURRENT_SCORE_ID}">0</span></p>
     </div>

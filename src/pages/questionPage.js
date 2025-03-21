@@ -3,12 +3,15 @@ import {
   QUESTION_EXPLANATION_ID,
   QUESTION_NUMBER_ID,
   ANSWERS_LIST_ID,
+  RESTART_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
+  CURRENT_SCORE_ID,
   USER_INTERFACE_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
+import { initWelcomePage } from '../pages/welcomePage.js';
 import { quizData } from '../data.js';
 
 export const initQuestionPage = () => {
@@ -21,18 +24,16 @@ export const initQuestionPage = () => {
   const questionElement = createQuestionElement(currentQuestion.text);
   userInterface.appendChild(questionElement);
 
-  // Write the question's explanation
+  // Add the question's explanation
   const questionExplanation = document.getElementById(QUESTION_EXPLANATION_ID);
   questionExplanation.textContent = currentQuestion.explanation;
 
-  // Write the question number
+  // Add the question number
   const questionNumber = document.getElementById(QUESTION_NUMBER_ID);
   questionNumber.textContent = quizData.currentQuestionIndex + 1;
 
   // Create the answers and append them to ANSWERS_LIST_ID
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
-  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
@@ -43,17 +44,20 @@ export const initQuestionPage = () => {
     nextQuestionButton.disabled = false;
   });
 
+  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.addEventListener('click', nextQuestion);
 
+  const restartQuizButton = document.getElementById(RESTART_BUTTON_ID);
+  restartQuizButton.addEventListener('click', initWelcomePage);
+
+  updateCurrentScore();
   saveState();
-  loadState();
 };
 
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
-  saveState();
 };
 
 const selectAnswer = (event, currentQuestion) => {
@@ -76,12 +80,11 @@ const checkAnswer = (event, currentQuestion) => {
   if (selectedAnswer === currentQuestion.correct) {
     showCorrectAnswer(selectedAnswer);
     quizData.score += 10;
+    updateCurrentScore();
   } else {
     showIncorrectAnswer(selectedAnswer);
     showCorrectAnswer(currentQuestion.correct);
   }
-
-  saveState();
 };
 
 const showCorrectAnswer = (correctAnswer) => {
@@ -100,15 +103,12 @@ const showIncorrectAnswer = (selectedAnswer) => {
     .classList.add('visible');
 };
 
+const updateCurrentScore = () => {
+  const currentScore = document.getElementById(CURRENT_SCORE_ID);
+  currentScore.textContent = quizData.score;
+};
+
 const saveState = () => {
   localStorage.setItem('currentIndex', quizData.currentQuestionIndex);
   localStorage.setItem('currentScore', quizData.score);
-};
-
-const loadState = () => {
-  const savedIndex = localStorage.getItem('currentIndex');
-  const savedScore = localStorage.getItem('currentScore');
-
-  quizData.currentQuestionIndex = savedIndex ? parseInt(savedIndex) : 0;
-  quizData.score = savedScore ? parseInt(savedScore) : 0;
 };
