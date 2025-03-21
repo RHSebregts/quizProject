@@ -19,7 +19,7 @@ export const initQuestionPage = () => {
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-    nextQuestionButton.disabled = true;
+  nextQuestionButton.disabled = true;
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
