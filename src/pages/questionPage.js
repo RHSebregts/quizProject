@@ -1,5 +1,9 @@
 import {
+  QUESTION_IMAGE_ID,
+  QUESTION_EXPLANATION_ID,
+  QUESTION_NUMBER_ID,
   ANSWERS_LIST_ID,
+  SKIP_QUESTION_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
 } from '../constants.js';
@@ -13,10 +17,19 @@ export const initQuestionPage = () => {
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
+  // Create question page structure and write the question itself
   const questionElement = createQuestionElement(currentQuestion.text);
-
   userInterface.appendChild(questionElement);
 
+  // Write the question's explanation
+  const questionExplanation = document.getElementById(QUESTION_EXPLANATION_ID);
+  questionExplanation.textContent = currentQuestion.explanation;
+
+  // Write the question number
+  const questionNumber = document.getElementById(QUESTION_NUMBER_ID);
+  questionNumber.textContent = quizData.currentQuestionIndex + 1;
+
+  // Create the answers and append them to ANSWERS_LIST_ID
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
 
@@ -62,6 +75,9 @@ const checkAnswer = (event, currentQuestion) => {
     showIncorrectAnswer(selectedAnswer);
     showCorrectAnswer(currentQuestion.correct);
   }
+
+  // Activate Next Question button
+  document.querySelector(`#${NEXT_QUESTION_BUTTON_ID}`).disabled = false;
 };
 
 const showCorrectAnswer = (correctAnswer) => {
@@ -74,4 +90,8 @@ const showIncorrectAnswer = (selectedAnswer) => {
   document
     .querySelector(`li[data-key="${selectedAnswer}"]`)
     .classList.add('incorrect');
+
+  document
+    .querySelector(`#${QUESTION_EXPLANATION_ID}`)
+    .classList.add('visible');
 };
