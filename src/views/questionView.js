@@ -3,8 +3,10 @@ import {
   QUESTION_EXPLANATION_ID,
   QUESTION_NUMBER_ID,
   ANSWERS_LIST_ID,
+  PROGRESS_BAR_ID,
   SKIP_QUESTION_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
+  CURRENT_SCORE_ID,
 } from '../constants.js';
 
 /**
@@ -33,13 +35,20 @@ export const createQuestionElement = (question) => {
   </main>
 
   <nav>
-    <button id="${SKIP_QUESTION_BUTTON_ID}">
-      Skip Question
-    </button>
+    
+    <div id="${PROGRESS_BAR_ID}">Progress bar goes here</div>
 
-    <button id="${NEXT_QUESTION_BUTTON_ID}" disabled>
-      Next Question
-    </button>
+    <div id="score-buttons-container">
+      <button id="${SKIP_QUESTION_BUTTON_ID}">
+        Skip Question
+      </button>
+
+      <button id="${NEXT_QUESTION_BUTTON_ID}" disabled>
+        Next Question
+      </button>
+
+      <span>Score: <span id="${CURRENT_SCORE_ID}">0</span></span>
+    </div>
   </nav>
   `;
 

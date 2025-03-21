@@ -140,11 +140,13 @@ input::placeholder {
   position: absolute;
   z-index: 1;
   opacity: 0;
-  transition: opacity 0.25s ease-in-out;
+  visibility: hidden;
+  transition: all 0.25s ease-in-out;
 }
 
 #question-explanation.visible {
   opacity: 1;
+  visibility: visible;
 }
 
 #question-explanation::before {
@@ -255,6 +257,40 @@ input::placeholder {
 
 nav {
   height: 7%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+  font-size: 2rem;
   background-color: #b51313;
   border-radius: 0 0 1.5rem 1.5rem;
+}
+
+#score-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+#score-buttons-container button {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  background-color: transparent;
+  border: 0.2rem solid #fff;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+#score-buttons-container button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+#score-buttons-container button:not(:disabled):hover {
+  color: #000;
+  background-color: #fff;
 }
