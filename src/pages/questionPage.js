@@ -19,7 +19,6 @@ export const initQuestionPage = () => {
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-  nextQuestionButton.disabled = true;
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
@@ -30,7 +29,6 @@ export const initQuestionPage = () => {
     checkAnswer(event, currentQuestion);
     nextQuestionButton.disabled = false;
   });
-
   nextQuestionButton.addEventListener('click', nextQuestion);
 };
 
