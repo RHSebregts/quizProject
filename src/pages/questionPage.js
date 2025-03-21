@@ -31,6 +31,8 @@ export const initQuestionPage = () => {
 
   // Create the answers and append them to ANSWERS_LIST_ID
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
@@ -38,13 +40,13 @@ export const initQuestionPage = () => {
 
   answersListElement.addEventListener('click', (event) => {
     checkAnswer(event, currentQuestion);
+    nextQuestionButton.disabled = false;
   });
+
+  nextQuestionButton.addEventListener('click', nextQuestion);
+
   saveState();
   loadState();
-
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
 };
 
 const nextQuestion = () => {
@@ -64,6 +66,7 @@ const selectAnswer = (event, currentQuestion) => {
   // Set the selected answer and add the 'selected' class
   currentQuestion.selected = answerKey;
   answerElement.classList.add('selected');
+
   return answerKey;
 };
 
@@ -77,9 +80,6 @@ const checkAnswer = (event, currentQuestion) => {
     showIncorrectAnswer(selectedAnswer);
     showCorrectAnswer(currentQuestion.correct);
   }
-
-  // Activate Next Question button
-  document.querySelector(`#${NEXT_QUESTION_BUTTON_ID}`).disabled = false;
 
   saveState();
 };
