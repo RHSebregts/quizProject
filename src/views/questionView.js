@@ -47,7 +47,7 @@ export const createQuestionElement = (question) => {
         Next Question
       </button>
 
-      <span>Score: <span id="${CURRENT_SCORE_ID}">0</span></span>
+      <p>Score: <span id="${CURRENT_SCORE_ID}">0</span></p>
     </div>
   </nav>
   `;

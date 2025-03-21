@@ -9,7 +9,7 @@ export const createWelcomeElement = () => {
   element.id = 'welcome-page-container';
   element.innerHTML = String.raw`
         <!-- <img src=""> this is here for a possible icon -->
-        <h1 id="welcome-header">Ultimate Movies & TV Series Quiz</h1>
+        <h1>Ultimate Movies & TV Series Quiz</h1>
 
         <p>Think you’re a true movie buff or a TV series expert? Test your knowledge with this fun and challenging quiz! From legendary 
         quotes to award-winning films, see if you can pick the right answers and prove you're the ultimate entertainment fan!</p>

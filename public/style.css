@@ -33,14 +33,10 @@ h1 {
   font-weight: 900;
 }
 
-p {
-  font-size: 1.6vmin;
-  font-weight: normal;
-}
-
 #user-interface {
   width: 65%;
   height: 65%;
+  font-size: 1.6vmin;
   color: white;
   text-align: center;
   background-color: #212020;
