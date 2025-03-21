@@ -7,5 +7,10 @@
 
 export const USER_INTERFACE_ID = 'user-interface';
 export const START_QUIZ_BUTTON_ID = 'start-quiz-button';
+
+export const QUESTION_IMAGE_ID = 'question-image';
+export const QUESTION_EXPLANATION_ID = 'question-explanation';
+export const QUESTION_NUMBER_ID = 'question-number';
 export const ANSWERS_LIST_ID = 'answers-list';
+export const SKIP_QUESTION_BUTTON_ID = 'skip-question-button';
 export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
