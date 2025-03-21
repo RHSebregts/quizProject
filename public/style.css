@@ -5,12 +5,6 @@
   font-weight: normal;
 }
 
-html {
-  font-size: 62.5% !important; /* this makes REM equal to 10px */
-  font-family: 'Roboto', sans-serif;
-  background-color: #212020;
-}
-
 body {
   height: 100vh;
   display: flex;
@@ -18,26 +12,37 @@ body {
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
+  font-family: 'Roboto', sans-serif;
+  background: url(../src/assets/background.jpg);
+  background-color: #212020;
+}
+
+body::after {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: absolute;
+  z-index: -1;
 }
 
 h1 {
-  font-size: 4.5rem;
+  font-size: 3.5vmin;
   font-weight: 900;
-}
-
-p {
-  font-size: 2rem;
-  font-weight: normal;
-  text-align: center;
 }
 
 #user-interface {
   width: 65%;
   height: 65%;
+  font-size: 1.6vmin;
   color: white;
-  border: #b51313 solid 0.2rem;
-  border-radius: 2rem;
-  box-shadow: 0 0 10rem 1rem rgba(181, 19, 19, 0.25);
+  text-align: center;
+  background-color: #212020;
+  border: 2px solid #b51313;
+  border-radius: 2vmin;
+  box-shadow: 0 0 20vmin 1vmin rgba(181, 19, 19, 0.5);
   overflow: hidden;
 }
 
@@ -48,7 +53,7 @@ p {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 7%;
+  padding: 8.5vmin;
 }
 
 #age-container {
@@ -58,18 +63,18 @@ p {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  gap: 4%;
-  margin-top: -2rem;
+  gap: 3vmin;
+  margin-top: -4vmin;
 }
 
 input {
   width: 60%;
   font-family: 'Roboto', sans-serif;
-  font-size: 2rem;
+  font-size: 1.6vmin;
   color: black;
   background-color: white;
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: 1vmin;
+  padding: 1vmin 2vmin;
   border: none;
 }
 
@@ -79,25 +84,21 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
-input::placeholder {
-  color: black;
-}
-
 #start-quiz-button {
   width: 60%;
   background-color: #b51313;
   color: white;
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: 1vmin;
+  padding: 1.5vmin;
   border: none;
-  font-size: 2rem;
+  font-size: 1.6vmin;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
 
 #start-quiz-button:hover {
-  box-shadow: 0 0 30px 10px rgba(181, 19, 19, 0.5);
+  box-shadow: 0 0 3vmin 1vmin rgba(181, 19, 19, 0.5);
   transform: scale(1.05);
 }
 
@@ -112,6 +113,7 @@ input::placeholder {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: flex-start;
+  text-align: left;
 }
 
 #question-image {
@@ -119,8 +121,8 @@ input::placeholder {
   height: 100%;
   display: flex;
   align-items: center;
-  border-right: 0.2rem solid #b51313;
-  border-radius: 1.5rem 0 0 0;
+  border-right: 2px solid #b51313;
+  border-radius: 1vmin 0 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -134,9 +136,9 @@ input::placeholder {
 #question-explanation {
   height: 100%;
   align-content: center;
-  font-size: 3rem;
+  font-size: 2.3vmin;
   font-weight: 400;
-  padding: 10%;
+  padding: 4vmin;
   position: absolute;
   z-index: 1;
   opacity: 0;
@@ -152,9 +154,9 @@ input::placeholder {
 #question-explanation::before {
   content: 'Explanation:';
   display: block;
-  font-size: 4rem;
+  font-size: 3vmin;
   font-weight: 900;
-  margin-bottom: 2rem;
+  margin-bottom: 3vmin;
 }
 
 #question-explanation::after {
@@ -173,15 +175,15 @@ input::placeholder {
   width: 70%;
   display: flex;
   align-items: flex-start;
-  gap: 2rem;
-  padding: 5%;
-  font-size: 4rem;
+  gap: 1.5vmin;
+  padding: 6vmin;
+  font-size: 3vmin;
   font-weight: 900;
 }
 
 #arrow-icon svg {
   fill: #fff;
-  width: 5rem;
+  width: 4vmin;
 }
 
 #question-answer {
@@ -194,17 +196,17 @@ input::placeholder {
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
-  gap: 3rem;
-  margin-top: 5rem;
+  gap: 2vmin;
+  margin-top: 4vmin;
   list-style: none;
 }
 
 #answers-list li {
   width: 100%;
-  font-size: 2.5rem;
-  padding: 1.5rem 1rem;
-  border: 0.2rem solid #fff;
-  border-radius: 1rem;
+  font-size: 2vmin;
+  padding: 1.2vmin 0.8vmin;
+  border: 0.2vmin solid #fff;
+  border-radius: 0.7vmin;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
@@ -214,10 +216,10 @@ input::placeholder {
 }
 
 #answers-list li::before {
-  padding: 0.5rem 1rem;
-  margin-right: 2rem;
-  border: 0.2rem solid #fff;
-  border-radius: 0.7rem;
+  padding: 0.4vmin 0.8vmin;
+  margin-right: 2vmin;
+  border: 0.2vmin solid #fff;
+  border-radius: 0.5vmin;
 }
 
 #answers-list li:nth-child(1)::before {
@@ -261,26 +263,26 @@ nav {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem;
-  font-size: 2rem;
+  padding: 0 3vmin;
+  font-size: 1.6vmin;
   background-color: #b51313;
-  border-radius: 0 0 1.5rem 1.5rem;
+  border-radius: 0 0 0.8vmin 0.8vmin;
 }
 
 #score-buttons-container {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2vmin;
 }
 
 #score-buttons-container button {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.2vmin;
   font-weight: 600;
-  padding: 1rem 3rem;
+  padding: 0.7vmin 2.7vmin;
   background-color: transparent;
-  border: 0.2rem solid #fff;
-  border-radius: 1rem;
+  border: 2px solid #fff;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
