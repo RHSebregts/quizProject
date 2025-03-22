@@ -124,14 +124,7 @@ const showIncorrectAnswer = (selectedAnswer) => {
     .querySelector(`li[data-key="${selectedAnswer}"]`)
     .classList.add('incorrect');
 
-  document
-    .querySelector(`#${QUESTION_EXPLANATION_ID}`)
-    .classList.add('visible');
-};
-
-const updateCurrentScore = () => {
-  const currentScore = document.getElementById(CURRENT_SCORE_ID);
-  currentScore.textContent = quizData.score;
+  document.querySelector(`#${QUESTION_EXPLANATION_ID}`).style.display = 'block';
 };
 
 const createProgress = (key, question) => {
