@@ -25,11 +25,11 @@ export const createQuestionElement = (question, number, image, explanation) => {
 	  </section>
 	  <section class ="quiz__content">
 		 <div class = "question">
-		 <div class = "question__block">
+		 <div class = "question__title">
 		<span id="${QUESTION_NUMBER_ID}">${number}</span>
-		 <h2 class ="question__title"> ${question}</h2>
+		 <h2 class ="question__text"> ${question}</h2>
+		 </div>
 			<ul id="${ANSWERS_LIST_ID}"></ul>
-      </div>
 		 </div>
 		 </div>
 	  </section>
