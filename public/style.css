@@ -95,15 +95,16 @@ h1 {
 
 .wrapper {
   margin: 0 auto;
-  padding: 0 1rem 0 1rem;
+  padding: 1rem;
   max-width: 87.5rem;
 }
 
 #user-interface {
   font-family: 'Roboto', sans-serif;
   display: flex;
+  flex-grow: 1;
+  max-width: 75rem;
   flex-direction: column;
-  flex: 1;
   max-height: 43.88rem;
   font-size: 1.25rem;
   color: white;
@@ -313,42 +314,38 @@ h1 {
   border-color: #1c9a10;
 }
 
-nav {
-  height: 7%;
+.quiz__nav {
+  min-height: 2.3rem;
+  padding: 0 2rem;
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 3vmin;
-  font-size: 1.6vmin;
   background-color: #b51313;
-  border-radius: 0 0 0.8vmin 0.8vmin;
-}
-
-#score-buttons-container {
-  display: flex;
-  align-items: center;
-  gap: 2vmin;
-}
-
-#score-buttons-container button {
+  border-radius: 0 0 0.4rem 0.4rem;
   color: #fff;
-  font-size: 1.2vmin;
+  align-items: center;
+  position: relative;
+}
+
+.quiz__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.quiz__controls button {
+  color: #fff;
+  font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.7vmin 2.7vmin;
+  padding: 0.3rem 1.3rem;
   background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 10px;
+  border: 0.125rem solid #fff;
+  border-radius: 0.6rem;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
 
-#score-buttons-container button:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-#score-buttons-container button:not(:disabled):hover {
+.quiz__controls button:hover {
   color: #000;
   background-color: #fff;
 }
@@ -366,4 +363,10 @@ nav {
 #result-image {
   width: 300px;
   margin-bottom: 3rem;
+}
+.quiz__controls button:disabled {
+  background-color: #d04a4a;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
