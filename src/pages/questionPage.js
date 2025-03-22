@@ -13,6 +13,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
 import { quizData } from '../data.js';
+import { createNavigation } from '../views/navigationView.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -21,16 +22,17 @@ export const initQuestionPage = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
   // Create question page structure and write the question itself
-  const questionElement = createQuestionElement(currentQuestion.text);
+  const questionElement = createQuestionElement(
+    currentQuestion.text,
+    quizData.currentQuestionIndex,
+    currentQuestion.imgLink,
+    currentQuestion.explanation
+  );
   userInterface.appendChild(questionElement);
 
   // Add the question's explanation
   const questionExplanation = document.getElementById(QUESTION_EXPLANATION_ID);
   questionExplanation.textContent = currentQuestion.explanation;
-
-  // Add the question number
-  const questionNumber = document.getElementById(QUESTION_NUMBER_ID);
-  questionNumber.textContent = quizData.currentQuestionIndex + 1;
 
   // Create the answers and append them to ANSWERS_LIST_ID
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
@@ -39,8 +41,13 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
+  const nav = createNavigation(quizData.score);
+  userInterface.appendChild(nav);
+  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  nextButton.addEventListener('click', nextQuestion);
+
   answersListElement.addEventListener('click', (event) => {
-    checkAnswer(event, currentQuestion);
+    checkAnswer(event, currentQuestion, nextButton);
     nextQuestionButton.disabled = false;
   });
 
@@ -60,7 +67,7 @@ const nextQuestion = () => {
   initQuestionPage();
 };
 
-const selectAnswer = (event, currentQuestion) => {
+const selectAnswer = (event, currentQuestion, nextButton) => {
   const answerElement = event.target;
   const answerKey = event.target.dataset.key;
 
@@ -69,13 +76,14 @@ const selectAnswer = (event, currentQuestion) => {
 
   // Set the selected answer and add the 'selected' class
   currentQuestion.selected = answerKey;
+  nextButton.disabled = false;
   answerElement.classList.add('selected');
 
   return answerKey;
 };
 
-const checkAnswer = (event, currentQuestion) => {
-  const selectedAnswer = selectAnswer(event, currentQuestion);
+const checkAnswer = (event, currentQuestion, nextButton) => {
+  const selectedAnswer = selectAnswer(event, currentQuestion, nextButton);
   if (!selectedAnswer) return; // if the answer selected -> function selectAnswer return undefined, so nothing will happen;
   if (selectedAnswer === currentQuestion.correct) {
     showCorrectAnswer(selectedAnswer);
