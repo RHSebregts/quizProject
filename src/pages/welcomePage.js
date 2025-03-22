@@ -12,6 +12,8 @@ export const initWelcomePage = () => {
   document
     .getElementById(START_QUIZ_BUTTON_ID)
     .addEventListener('click', startQuiz);
+
+  localStorage.clear();
 };
 
 const startQuiz = () => {
