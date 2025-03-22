@@ -1,8 +1,7 @@
 import {
-  QUESTION_IMAGE_ID,
   QUESTION_EXPLANATION_ID,
-  QUESTION_NUMBER_ID,
   ANSWERS_LIST_ID,
+  PROGRESS_BAR_ID,
   RESTART_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
@@ -11,6 +10,7 @@ import {
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
+import { createProgressElement } from '../views/progressView.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
 import { initResultPage } from '../pages/resultPage.js';
 import { quizData } from '../data.js';
@@ -22,6 +22,7 @@ export const initQuestionPage = () => {
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const currentNumberQuestion = quizData.currentQuestionIndex + 1;
+
   // Create question page structure and write the question itself
   const questionElement = createQuestionElement(
     currentQuestion.text,
@@ -49,6 +50,15 @@ export const initQuestionPage = () => {
   const nav = createNavigation(quizData.score);
   userInterface.appendChild(nav);
 
+  // Create the progress elements and append them to PROGRESS_BAR_ID
+  const progressBar = document.getElementById(PROGRESS_BAR_ID);
+  const getStoredData = JSON.parse(localStorage.getItem('quizData'));
+
+  for (const [key, question] of Object.entries(getStoredData.questions)) {
+    const progressElement = createProgress(key, question);
+    progressBar.appendChild(progressElement);
+  }
+
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
 
   if (quizData.currentQuestionIndex + 1 != quizData.questions.length) {
@@ -62,17 +72,17 @@ export const initQuestionPage = () => {
   restartQuizButton.addEventListener('click', initWelcomePage);
 
   updateCurrentScore();
-  saveState();
 };
 
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  localStorage.setItem('quizData', JSON.stringify(quizData));
   initQuestionPage();
 };
 
 const getResult = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-  saveState();
+  localStorage.setItem('quizData', JSON.stringify(quizData));
   initResultPage();
 };
 
@@ -124,18 +134,20 @@ const updateCurrentScore = () => {
   currentScore.textContent = quizData.score;
 };
 
-const saveState = () => {
-  localStorage.setItem('currentIndex', quizData.currentQuestionIndex);
-  localStorage.setItem('currentScore', quizData.score);
-};
+const createProgress = (key, question) => {
+  let progressElement;
 
-// this is just the logic for the counter, since it doesn't exist yet, I just populated the function with dummy data
-/*
-const progressBar = () => {
-  const answersArray = ['correct', 'incorrect', 'correct', 'skipped', 'correct']
-  const progressBar = document.getElementById(progressBarContainer);
-  Array.from(progressBarContainer.children).forEach((child, inx) => {
-    child.classList.add(answersArray[inx]);
-  })
-}
- */
+  if (key == quizData.currentQuestionIndex) {
+    progressElement = createProgressElement('current');
+  } else if (question.selected) {
+    if (question.selected === question.correct) {
+      progressElement = createProgressElement('correct');
+    } else {
+      progressElement = createProgressElement('incorrect');
+    }
+  } else {
+    progressElement = createProgressElement();
+  }
+
+  return progressElement;
+};

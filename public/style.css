@@ -153,12 +153,23 @@ h1 {
 #user-name {
   text-align: left;
   background-color: white;
+  border: 2px solid #212020;
   max-width: 44.3rem;
   width: 100%;
   margin: 0 auto;
   padding: 1rem;
   border-radius: 0.63rem;
   margin-bottom: 3.87rem;
+  transition: all 0.25s ease-in-out;
+}
+
+#user-name.empty-field {
+  border: 2px solid #b51313;
+  box-shadow: 0 0 15px 0px #b51313;
+}
+
+#user-name.empty-field::placeholder {
+  color: #b51313;
 }
 
 #start-quiz-button,
@@ -323,6 +334,34 @@ nav {
   font-size: 1.6vmin;
   background-color: #b51313;
   border-radius: 0 0 0.8vmin 0.8vmin;
+}
+
+#progress-bar {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+#progress-bar li {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+#progress-bar li.current {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #fff;
+}
+
+#progress-bar li.incorrect {
+  background-color: #ff0000;
+}
+
+#progress-bar li.correct {
+  background-color: #1c9a10;
 }
 
 #score-buttons-container {

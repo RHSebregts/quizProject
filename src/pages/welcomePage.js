@@ -1,4 +1,8 @@
-import { USER_INTERFACE_ID, START_QUIZ_BUTTON_ID } from '../constants.js';
+import {
+  USER_INTERFACE_ID,
+  START_QUIZ_BUTTON_ID,
+  USER_NAME_ID,
+} from '../constants.js';
 import { quizData } from '../data.js';
 import { createWelcomeElement } from '../views/welcomeView.js';
 import { initQuestionPage } from './questionPage.js';
@@ -13,17 +17,29 @@ export const initWelcomePage = () => {
   document
     .getElementById(START_QUIZ_BUTTON_ID)
     .addEventListener('click', startQuiz);
-
-  quizData.currentQuestionIndex = 0;
-  localStorage.clear();
 };
 
 const startQuiz = () => {
-  const userName = document.querySelector('#user-name');
-  localStorage.setItem('UserName', userName.value);
+  const userName = document.querySelector(`#${USER_NAME_ID}`);
+  quizData.userName = userName.value;
+
+  resetQuizData();
+  localStorage.setItem('quizData', JSON.stringify(quizData));
+
   const userNameRequired = () => {
     userName.placeholder = 'This field is required';
     userName.classList.add('empty-field'); // frontend needs to add this class and style it accordingly
   };
   userName.value.length === 0 ? userNameRequired() : initQuestionPage();
+};
+
+const resetQuizData = () => {
+  quizData.currentQuestionIndex = 0;
+  quizData.score = 0;
+
+  quizData.questions.forEach((element) => {
+    element.selected = null;
+  });
+
+  localStorage.clear();
 };

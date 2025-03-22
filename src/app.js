@@ -4,18 +4,24 @@ import { initResultPage } from './pages/resultPage.js';
 import { initQuestionPage } from './pages/questionPage.js';
 
 const loadApp = () => {
-  const savedIndex = localStorage.getItem('currentIndex');
-  const questionsLength = quizData.questions.length;
+  const getStoredData = JSON.parse(localStorage.getItem('quizData'));
 
-  if (!savedIndex) {
+  if (getStoredData) {
+    const storedQuestionIndex = getStoredData.currentQuestionIndex;
+    const questionsLength = quizData.questions.length;
+
+    if (storedQuestionIndex < questionsLength) {
+      quizData.currentQuestionIndex = storedQuestionIndex;
+      quizData.score = getStoredData.score;
+      quizData.userName = getStoredData.userName;
+      quizData.questions = getStoredData.questions;
+
+      initQuestionPage();
+    } else if (storedQuestionIndex >= questionsLength) {
+      initResultPage();
+    }
+  } else {
     initWelcomePage();
-  } else if (savedIndex < questionsLength) {
-    quizData.currentQuestionIndex = parseInt(savedIndex);
-    quizData.score = parseInt(localStorage.getItem('currentScore'));
-
-    initQuestionPage();
-  } else if (savedIndex >= questionsLength) {
-    initResultPage();
   }
 };
 
