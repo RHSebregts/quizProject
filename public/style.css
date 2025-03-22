@@ -113,7 +113,6 @@ max-height: 43.88rem;
   border: 0.13rem solid #b51313;
   border-radius: 1.25rem;
   box-shadow: 0 0 5rem 0.2rem rgba(181, 19, 19, 0.5);
-
   overflow: hidden;
 }
 
@@ -162,7 +161,7 @@ max-height: 43.88rem;
 	max-width:  44.3rem; 
 	width: 100%;
 	margin: 0 auto;
-	padding: 14px;
+	padding: 1rem;
 		border-radius: 0.63rem; 
 	margin-bottom:  3.87rem;
 }
@@ -185,34 +184,71 @@ margin-bottom:  6.25rem;
 }
 
 /* =-=-=-=-= Question Page Styling =-=-=-=-= */
-#question-page-container {
-  height: 100%;
+.main{
+	display: flex;
+	  justify-content: space-between;
 }
 
-#question-page-container main {
-  height: 93%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  text-align: left;
+.quiz__content{
+	display: flex;
+	width: 100%;
+	padding: 4rem 3rem 2.5rem 4rem;
 }
 
-#question-image {
-  width: 30%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  border-right: 2px solid #b51313;
-  border-radius: 1vmin 0 0 0;
-  position: relative;
-  overflow: hidden;
+
+.question__title{
+position: relative;
+padding-left: 6rem;
 }
 
-#question-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+ 
+ #question-number{
+font-size: 2rem;
+position: relative;
+ }
+
+ #question-number:after{
+	content: ''; 
+	position: absolute;
+	top: 0.5rem;
+	left: 3rem;
+	width: 1em;
+	height: 1em; 
+	background-image: url('./img/Arrow 1.svg'); 
+	background-size: contain;
+	background-repeat: no-repeat;
+	 }
+
+
+
+
+.quiz__media{
+	max-width: 22.6em;
+	max-height: 33.3em;
+}
+
+.answer{
+	margin-bottom: 2.19rem;
+}
+
+.answer:last-child{
+	margin-bottom: 0;
+}
+
+
+
+#question-image{
+	width: 100%;
+	height: 100%;
+  object-fit: contain;
+}
+
+
+.question__block{
+display: flex;
+margin-bottom: 3.75rem;
+align-items: center;
 }
 
 #question-explanation {
@@ -221,17 +257,16 @@ margin-bottom:  6.25rem;
   font-size: 2.3vmin;
   font-weight: 400;
   padding: 4vmin;
-  position: absolute;
+  display: none;
   z-index: 1;
   opacity: 0;
-  visibility: hidden;
   transition: all 0.25s ease-in-out;
+  opacity: 1;
 }
 
-#question-explanation.visible {
-  opacity: 1;
-  visibility: visible;
-}
+
+
+
 
 #question-explanation::before {
   content: 'Explanation:';
