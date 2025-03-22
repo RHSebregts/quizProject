@@ -3,9 +3,10 @@ import {
   SKIP_QUESTION_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
   CURRENT_SCORE_ID,
+  RESTART_BUTTON_ID,
 } from '../constants.js';
 
-export const createNavigation = () => {
+export const createNavigation = (score) => {
   const nav = document.createElement('nav');
   nav.classList.add('quiz__nav');
   nav.innerHTML = `
@@ -18,7 +19,7 @@ export const createNavigation = () => {
 		  </div>
 	 
 		  <div class="quiz__score">
-			 <p>Score: <span id="${CURRENT_SCORE_ID}"></span></p>
+			 <p>Score: <span id="${CURRENT_SCORE_ID}">${score}</span></p>
 		  </div>
 		`;
 
