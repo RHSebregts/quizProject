@@ -17,13 +17,14 @@ export const initResultPage = () => {
 
   let userName = quizData.userName;
   if (userName === '') {
-    userName = localStorage.getItem('UserName');
+    const getStoredUsername = JSON.parse(localStorage.getItem('quizData'));
+    userName = getStoredUsername.userName;
   }
 
   let score = quizData.score;
   if (score === 0) {
-    const getScore = parseInt(localStorage.getItem('currentScore'));
-    getScore ? (score = getScore) : (score = 0);
+    const getStoredScore = JSON.parse(localStorage.getItem('quizData'));
+    score = getStoredScore.score;
   }
 
   const resultParagraph = document.getElementById(RESULT_PARAGRAPH_ID);
@@ -41,7 +42,8 @@ export const initResultPage = () => {
     resultImage.src = './public/assets/result-images/genius.webp';
   }
 
-  document
-    .getElementById(RESTART_BUTTON_ID)
-    .addEventListener('click', initWelcomePage);
+  document.getElementById(RESTART_BUTTON_ID).addEventListener('click', () => {
+    localStorage.clear();
+    initWelcomePage();
+  });
 };

@@ -15,7 +15,7 @@ export const createWelcomeElement = () => {
         quotes to award-winning films, see if you can pick the right answers and prove you're the ultimate entertainment fan!</p>
 
         <p class="welcome__instruction"> Enter your name and age to begin</p> 
-        <form class="welcome__form">
+        <div class="welcome__form">
           <input type="text" class="welcome__input" id="${USER_NAME_ID}" placeholder="Your name">
   
           <!--
@@ -27,7 +27,7 @@ export const createWelcomeElement = () => {
           -->
 
           <button id="${START_QUIZ_BUTTON_ID}">Start the quiz</button>
-        </form>  
+        </div>  
 
 
         <!-- <p id="age-restriction-p">
