@@ -10,7 +10,7 @@ export const createNavigation = (score) => {
   const nav = document.createElement('nav');
   nav.classList.add('quiz__nav');
   nav.innerHTML = `
-		  <div id="${PROGRESS_BAR_ID}">Progress bar goes here</div>
+		  <ul id="${PROGRESS_BAR_ID}"></ul>
 	 
 		  <div class="quiz__controls">
 		  <button id="${RESTART_BUTTON_ID}">Restart the quiz</button>
