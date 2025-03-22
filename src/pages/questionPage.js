@@ -12,6 +12,7 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { initWelcomePage } from '../pages/welcomePage.js';
+import { initResultPage } from '../pages/resultPage.js';
 import { quizData } from '../data.js';
 import { createNavigation } from '../views/navigationView.js';
 
@@ -49,7 +50,13 @@ export const initQuestionPage = () => {
   userInterface.appendChild(nav);
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-  nextQuestionButton.addEventListener('click', nextQuestion);
+
+  if (quizData.currentQuestionIndex + 1 != quizData.questions.length) {
+    nextQuestionButton.addEventListener('click', nextQuestion);
+  } else {
+    nextQuestionButton.textContent = 'Get Result';
+    nextQuestionButton.addEventListener('click', getResult);
+  }
 
   const restartQuizButton = document.getElementById(RESTART_BUTTON_ID);
   restartQuizButton.addEventListener('click', initWelcomePage);
@@ -60,8 +67,13 @@ export const initQuestionPage = () => {
 
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-
   initQuestionPage();
+};
+
+const getResult = () => {
+  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  saveState();
+  initResultPage();
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {

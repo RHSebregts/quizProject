@@ -162,7 +162,8 @@ h1 {
   margin-bottom: 3.87rem;
 }
 
-#start-quiz-button {
+#start-quiz-button,
+.restart__button {
   margin: 0 auto;
   padding: 0.875rem 18.37rem 0.875rem 18.37rem;
   border-radius: 0.63rem;
@@ -174,7 +175,8 @@ h1 {
   margin-bottom: 6.25rem;
 }
 
-#start-quiz-button:hover {
+#start-quiz-button:hover,
+.restart__button:hover {
   box-shadow: 0 0 3vmin 1vmin rgba(181, 19, 19, 0.5);
   transform: scale(1.05);
 }
@@ -348,9 +350,23 @@ h1 {
   background-color: #fff;
 }
 
+
 .quiz__controls button:disabled {
   background-color: #d04a4a;
   color: #fff;
   cursor: not-allowed;
   opacity: 0.7;
+}
+
+.resultPage {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 0 5rem 5rem;
+  text-align: center;
+}
+
+#result-image {
+  width: 300px;
+  margin-bottom: 3rem;
 }

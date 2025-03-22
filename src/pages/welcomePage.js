@@ -1,4 +1,5 @@
 import { USER_INTERFACE_ID, START_QUIZ_BUTTON_ID } from '../constants.js';
+import { quizData } from '../data.js';
 import { createWelcomeElement } from '../views/welcomeView.js';
 import { initQuestionPage } from './questionPage.js';
 
@@ -13,6 +14,7 @@ export const initWelcomePage = () => {
     .getElementById(START_QUIZ_BUTTON_ID)
     .addEventListener('click', startQuiz);
 
+  quizData.currentQuestionIndex = 0;
   localStorage.clear();
 };
 
