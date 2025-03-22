@@ -20,7 +20,7 @@ export const createQuestionElement = (question, number, image, explanation) => {
   element.innerHTML = String.raw`
 	<main class = "main">
 	  <section class = "quiz__media">
-		 <img id="${QUESTION_IMAGE_ID}" src=${image} alt="Image Placeholder">
+		 <img id="${QUESTION_IMAGE_ID}" src=${image} alt="Image linked to the question">
 		 <div id="${QUESTION_EXPLANATION_ID}">${explanation}</div>
 	  </section>
 	  <section class ="quiz__content">

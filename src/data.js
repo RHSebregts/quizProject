@@ -5,7 +5,7 @@ export const quizData = {
   questions: [
     {
       text:
-        'How many installements are there in the Fast and Furious franchise?',
+        'How many installments are there in the Fast and Furious franchise?',
       answers: {
         a: '8',
         b: '9',
@@ -16,7 +16,7 @@ export const quizData = {
       selected: null,
       explanation:
         'There are 11 installments in the Fast & Furious franchise, including 10 main films (The Fast and the Furious to Fast X) and one spin-off (Hobbs & Shaw)',
-      imgLink: './public/assets/question-images/breaking-bad.jpg',
+      imgLink: 'public/assets/question-images/fast-and-furious.jpg',
     },
 
     {
@@ -118,7 +118,7 @@ export const quizData = {
         a: 'Billie Eilish - BIRDS OF A FEATHER',
         b: "The Cure - Boys Don't Cry",
         c: 'Eels - I Need Some Sleep',
-        d: 'Hallie Coggins, Rosa Walton - Really Want to Stay in Your House',
+        d: 'Rosa Walton - Really Want to Stay in Your House',
       },
       correct: 'd',
       selected: null,
