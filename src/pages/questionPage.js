@@ -112,3 +112,14 @@ const saveState = () => {
   localStorage.setItem('currentIndex', quizData.currentQuestionIndex);
   localStorage.setItem('currentScore', quizData.score);
 };
+
+// this is just the logic for the counter, since it doesn't exist yet, I just populated the function with dummy data
+/*
+const progressBar = () => {
+  const answersArray = ['correct', 'incorrect', 'correct', 'skipped', 'correct']
+  const progressBar = document.getElementById(progressBarContainer);
+  Array.from(progressBarContainer.children).forEach((child, inx) => {
+    child.classList.add(answersArray[inx]);
+  })
+}
+ */
