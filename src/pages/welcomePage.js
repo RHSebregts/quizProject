@@ -17,5 +17,11 @@ export const initWelcomePage = () => {
 };
 
 const startQuiz = () => {
-  initQuestionPage();
+  const userName = document.querySelector('#user-name');
+  localStorage.setItem('UserName', userName.value);
+  const userNameRequired = () => {
+    userName.placeholder = 'This field is required';
+    userName.classList.add('empty-field'); // frontend needs to add this class and style it accordingly
+  };
+  userName.value.length === 0 ? userNameRequired() : initQuestionPage();
 };
