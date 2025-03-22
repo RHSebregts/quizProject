@@ -3,6 +3,11 @@ import {
   QUESTION_EXPLANATION_ID,
   QUESTION_NUMBER_ID,
   ANSWERS_LIST_ID,
+  PROGRESS_BAR_ID,
+  RESTART_BUTTON_ID,
+  SKIP_QUESTION_BUTTON_ID,
+  NEXT_QUESTION_BUTTON_ID,
+  CURRENT_SCORE_ID,
 } from '../constants.js';
 
 /**
@@ -23,12 +28,11 @@ export const createQuestionElement = (question, number, image, explanation) => {
 		 <div class = "question__block">
 		<span id="${QUESTION_NUMBER_ID}">${number}</span>
 		 <h2 class ="question__title"> ${question}</h2>
-		 </div>
 			<ul id="${ANSWERS_LIST_ID}"></ul>
+      </div>
 		 </div>
 	  </section>
 	</main>
 	`;
-
   return element;
 };

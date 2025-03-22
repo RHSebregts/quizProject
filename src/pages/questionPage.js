@@ -3,12 +3,15 @@ import {
   QUESTION_EXPLANATION_ID,
   QUESTION_NUMBER_ID,
   ANSWERS_LIST_ID,
+  RESTART_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
   NEXT_QUESTION_BUTTON_ID,
+  CURRENT_SCORE_ID,
   USER_INTERFACE_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
+import { initWelcomePage } from '../pages/welcomePage.js';
 import { quizData } from '../data.js';
 import { createNavigation } from '../views/navigationView.js';
 
@@ -27,7 +30,7 @@ export const initQuestionPage = () => {
   );
   userInterface.appendChild(questionElement);
 
-  // Write the question's explanation
+  // Add the question's explanation
   const questionExplanation = document.getElementById(QUESTION_EXPLANATION_ID);
   questionExplanation.textContent = currentQuestion.explanation;
 
@@ -45,7 +48,17 @@ export const initQuestionPage = () => {
 
   answersListElement.addEventListener('click', (event) => {
     checkAnswer(event, currentQuestion, nextButton);
+    nextQuestionButton.disabled = false;
   });
+
+  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  nextQuestionButton.addEventListener('click', nextQuestion);
+
+  const restartQuizButton = document.getElementById(RESTART_BUTTON_ID);
+  restartQuizButton.addEventListener('click', initWelcomePage);
+
+  updateCurrentScore();
+  saveState();
 };
 
 const nextQuestion = () => {
@@ -65,6 +78,7 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
   currentQuestion.selected = answerKey;
   nextButton.disabled = false;
   answerElement.classList.add('selected');
+
   return answerKey;
 };
 
@@ -74,6 +88,7 @@ const checkAnswer = (event, currentQuestion, nextButton) => {
   if (selectedAnswer === currentQuestion.correct) {
     showCorrectAnswer(selectedAnswer);
     quizData.score += 10;
+    updateCurrentScore();
   } else {
     showIncorrectAnswer(selectedAnswer);
     showCorrectAnswer(currentQuestion.correct);
@@ -95,3 +110,24 @@ const showIncorrectAnswer = (selectedAnswer) => {
     .querySelector(`#${QUESTION_EXPLANATION_ID}`)
     .classList.add('visible');
 };
+
+const updateCurrentScore = () => {
+  const currentScore = document.getElementById(CURRENT_SCORE_ID);
+  currentScore.textContent = quizData.score;
+};
+
+const saveState = () => {
+  localStorage.setItem('currentIndex', quizData.currentQuestionIndex);
+  localStorage.setItem('currentScore', quizData.score);
+};
+
+// this is just the logic for the counter, since it doesn't exist yet, I just populated the function with dummy data
+/*
+const progressBar = () => {
+  const answersArray = ['correct', 'incorrect', 'correct', 'skipped', 'correct']
+  const progressBar = document.getElementById(progressBarContainer);
+  Array.from(progressBarContainer.children).forEach((child, inx) => {
+    child.classList.add(answersArray[inx]);
+  })
+}
+ */
