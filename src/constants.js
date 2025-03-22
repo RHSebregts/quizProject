@@ -17,3 +17,5 @@ export const SKIP_QUESTION_BUTTON_ID = 'skip-question-button';
 export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
 export const CURRENT_SCORE_ID = 'current-score';
 export const USER_NAME_ID = 'user-name';
+export const RESULT_PARAGRAPH_ID = 'result-paragraph';
+export const RESULT_IMAGE_ID = 'result-image';
