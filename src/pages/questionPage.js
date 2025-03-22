@@ -41,15 +41,12 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
+  answersListElement.addEventListener('click', (event) => {
+    checkAnswer(event, currentQuestion, nextQuestionButton);
+  });
+
   const nav = createNavigation(quizData.score);
   userInterface.appendChild(nav);
-  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-  nextButton.addEventListener('click', nextQuestion);
-
-  answersListElement.addEventListener('click', (event) => {
-    checkAnswer(event, currentQuestion, nextButton);
-    nextQuestionButton.disabled = false;
-  });
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.addEventListener('click', nextQuestion);
@@ -73,7 +70,6 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
 
   // Only proceed if the answer hasn't been selected yet, and the target is an <LI> element
   if (currentQuestion.selected || answerElement.tagName != 'LI') return;
-
   // Set the selected answer and add the 'selected' class
   currentQuestion.selected = answerKey;
   nextButton.disabled = false;
