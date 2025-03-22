@@ -29,11 +29,11 @@ export const createQuestionElement = (question, number, image, explanation) => {
 		<span id="${QUESTION_NUMBER_ID}">${number}</span>
 		 <h2 class ="question__title"> ${question}</h2>
 			<ul id="${ANSWERS_LIST_ID}"></ul>
+      </div>
 		 </div>
 		 </div>
 	  </section>
 	</main>
 	`;
-
   return element;
 };

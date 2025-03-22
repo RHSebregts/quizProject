@@ -42,7 +42,7 @@ export const initQuestionPage = () => {
   }
 
   answersListElement.addEventListener('click', (event) => {
-    checkAnswer(event, currentQuestion);
+    checkAnswer(event, currentQuestion, nextButton);
     nextQuestionButton.disabled = false;
   });
 
