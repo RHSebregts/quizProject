@@ -101,6 +101,9 @@ h1 {
 
 #user-interface {
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   max-height: 43.88rem;
   font-size: 1.25rem;
   color: white;
@@ -176,9 +179,14 @@ h1 {
 }
 
 /* =-=-=-=-= Question Page Styling =-=-=-=-= */
+
+.quiz__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .main {
   display: flex;
-  justify-content: space-between;
 }
 
 .quiz__content {
@@ -190,6 +198,7 @@ h1 {
   align-items: center;
   gap: 2rem;
   margin-bottom: 5rem;
+  font-size: 1rem;
 }
 
 #question-number {
@@ -247,9 +256,9 @@ h1 {
 
 .answer {
   width: 100%;
-  padding: 1.2vmin 0.8vmin;
-  border: 0.2vmin solid #fff;
-  border-radius: 0.7vmin;
+  padding: 0.6rem 0.5rem;
+  border: 0.1rem solid #fff;
+  border-radius: 0.7rem;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }

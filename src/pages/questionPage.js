@@ -20,11 +20,11 @@ export const initQuestionPage = () => {
   userInterface.innerHTML = '';
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-
+  const currentNumberQuestion = quizData.currentQuestionIndex + 1;
   // Create question page structure and write the question itself
   const questionElement = createQuestionElement(
     currentQuestion.text,
-    quizData.currentQuestionIndex,
+    currentNumberQuestion,
     currentQuestion.imgLink,
     currentQuestion.explanation
   );
