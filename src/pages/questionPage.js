@@ -61,6 +61,9 @@ export const initQuestionPage = () => {
   const restartQuizButton = document.getElementById(RESTART_BUTTON_ID);
   restartQuizButton.addEventListener('click', initWelcomePage);
 
+  const skipQuestionButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+  skipQuestionButton.addEventListener('click', skipQuestion);
+  
   updateCurrentScore();
   saveState();
 };
@@ -74,6 +77,18 @@ const getResult = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   saveState();
   initResultPage();
+};
+
+const skipQuestion = () => {
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  
+  showCorrectAnswer(currentQuestion.correct);
+
+  document.getElementById(QUESTION_EXPLANATION_ID).classList.add('visible');
+
+  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  nextQuestionButton.disabled = false;
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
