@@ -32,9 +32,7 @@ export const initQuestionPage = () => {
   );
   userInterface.appendChild(questionElement);
 
-  // Add the question's explanation
-  const questionExplanation = document.getElementById(QUESTION_EXPLANATION_ID);
-  questionExplanation.textContent = currentQuestion.explanation;
+  
 
   // Create the answers and append them to ANSWERS_LIST_ID
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
