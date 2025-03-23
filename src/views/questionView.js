@@ -20,6 +20,7 @@ export const createQuestionElement = (question, number, image, explanation) => {
       <div id="${QUESTION_EXPLANATION_ID}">${explanation}</div>
     </section>
     <section class="quiz__content">
+      <img class="question__logo" src="./public/assets/logo.svg">
       <div class="question__title">
         <span id="${QUESTION_NUMBER_ID}">${number}</span>
         <h1 class="question__text"> ${question}</h1>

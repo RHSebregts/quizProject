@@ -78,7 +78,12 @@ h1 {
   justify-content: space-evenly;
   height: 100%;
   text-align: center;
-  padding: 5%;
+  padding: 3%;
+}
+
+.welcome__logo {
+  width: 15rem;
+  margin: 0 auto;
 }
 
 .welcome__title {
@@ -161,7 +166,16 @@ h1 {
 
 .quiz__content {
   width: 70%;
+  height: 100%;
   padding: 5%;
+  position: relative;
+}
+
+.question__logo {
+  width: 10%;
+  position: absolute;
+  right: 2vmin;
+  top: 2vmin;
 }
 
 .question__title {
@@ -185,7 +199,7 @@ h1 {
   margin-left: 0.8rem;
   width: 1em;
   height: 1em;
-  background-image: url('./img/Arrow 1.svg');
+  background-image: url('./assets/Arrow\ 1.svg');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -361,7 +375,7 @@ h1 {
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  padding: 5%;
+  padding: 3%;
   text-align: center;
 }
 
