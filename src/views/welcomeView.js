@@ -14,7 +14,7 @@ export const createWelcomeElement = () => {
         <p class= "welcome__description">Think you’re a true movie buff or a TV series expert? Test your knowledge with this fun and challenging quiz! From legendary 
         quotes to award-winning films, see if you can pick the right answers and prove you're the ultimate entertainment fan!</p>
 
-        <p class="welcome__instruction"> Enter your name and age to begin</p> 
+        <p class="welcome__instruction"> Enter your name to begin</p> 
         <div class="welcome__form">
           <input type="text" class="welcome__input" id="${USER_NAME_ID}" placeholder="Your name">
   
