@@ -131,19 +131,17 @@ const showIncorrectAnswer = (selectedAnswer) => {
 };
 
 const createProgress = (key, question) => {
-  let progressElement;
-
   if (key == quizData.currentQuestionIndex) {
-    progressElement = createProgressElement('current');
-  } else if (question.selected) {
-    if (question.selected === question.correct) {
-      progressElement = createProgressElement('correct');
-    } else {
-      progressElement = createProgressElement('incorrect');
-    }
-  } else {
-    progressElement = createProgressElement();
+    return createProgressElement('current');
   }
 
-  return progressElement;
+  if (question.selected === null){
+    return createProgressElement();
+  }
+
+  if (question.selected === question.correct) {
+     return  createProgressElement('correct');
+  }
+  
+  return createProgressElement('incorrect');
 };
