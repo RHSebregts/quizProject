@@ -47,7 +47,7 @@ export const initQuestionPage = () => {
     checkAnswer(event, currentQuestion, nextQuestionButton);
   });
 
-  const nav = createNavigation(quizData.score);
+  const nav = createNavigation();
   userInterface.appendChild(nav);
 
   // Create the progress elements and append them to PROGRESS_BAR_ID
@@ -87,6 +87,11 @@ const getResult = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   localStorage.setItem('quizData', JSON.stringify(quizData));
   initResultPage();
+};
+
+const updateCurrentScore = () => {
+  const currentScore = document.getElementById(CURRENT_SCORE_ID);
+  currentScore.textContent = quizData.score;
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
@@ -135,13 +140,13 @@ const createProgress = (key, question) => {
     return createProgressElement('current');
   }
 
-  if (question.selected === null){
+  if (question.selected === null) {
     return createProgressElement();
   }
 
   if (question.selected === question.correct) {
-     return  createProgressElement('correct');
+    return createProgressElement('correct');
   }
-  
+
   return createProgressElement('incorrect');
 };
