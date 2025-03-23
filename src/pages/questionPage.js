@@ -69,7 +69,10 @@ export const initQuestionPage = () => {
   }
 
   const restartQuizButton = document.getElementById(RESTART_BUTTON_ID);
-  restartQuizButton.addEventListener('click', initWelcomePage);
+  restartQuizButton.addEventListener('click', () => {
+    initWelcomePage();
+    localStorage.clear();
+  });
 
   updateCurrentScore();
 };
