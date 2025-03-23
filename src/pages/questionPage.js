@@ -48,7 +48,7 @@ export const initQuestionPage = () => {
   });
 
   const nav = createNavigation();
-  userInterface.appendChild(nav);
+  document.getElementById('question-container').appendChild(nav);
 
   // Create the progress elements and append them to PROGRESS_BAR_ID
   const progressBar = document.getElementById(PROGRESS_BAR_ID);

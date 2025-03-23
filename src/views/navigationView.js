@@ -14,13 +14,14 @@ export const createNavigation = () => {
 	 
 		  <div class="quiz__controls">
 		  <button id="${RESTART_BUTTON_ID}">Restart the quiz</button>
-			 <button id="${SKIP_QUESTION_BUTTON_ID}">Skip Question</button>
-			 <button id="${NEXT_QUESTION_BUTTON_ID}" disabled>Next Question</button>
-		  </div>
+        <button id="${SKIP_QUESTION_BUTTON_ID}">Skip Question</button>
+        <button id="${NEXT_QUESTION_BUTTON_ID}" disabled>Next Question</button>
+		  
 	 
-		  <div class="quiz__score">
-			 <p>Score: <span id="${CURRENT_SCORE_ID}">0</span></p>
-		  </div>
+        <div class="quiz__score">
+          <p>Score: <span id="${CURRENT_SCORE_ID}">0</span></p>
+        </div>
+      </div>
 		`;
 
   return nav;
