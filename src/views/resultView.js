@@ -12,7 +12,7 @@ export const createResultElement = () => {
   const element = document.createElement('div');
   element.className = 'resultPage';
   element.innerHTML = String.raw`
-        <!-- <img src=""> this is here for a possible icon -->
+        <img class="welcome__logo" src="./public/assets/logo.svg">
         <h1 class="welcome__title">And the Oscar Goes To... You?</h1>
 
         <p id="${RESULT_PARAGRAPH_ID}" class="welcome__description">Oops... Have you been watching documentaries only? No worries, grab some popcorn and start catching up!</p>

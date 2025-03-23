@@ -8,8 +8,8 @@ export const createWelcomeElement = () => {
   const element = document.createElement('div');
   element.className = 'welcome';
   element.innerHTML = String.raw`
-        <!-- <img src=""> this is here for a possible icon -->
-        <h1 class="welcome__title">Ultimate Movies & TV Series Quiz</h1>
+        <img class="welcome__logo" src="./public/assets/logo.svg">
+        <h1 class="welcome__title">The Ultimate Movies & TV Series Quiz</h1>
 
         <p class="welcome__description">Think you’re a true movie buff or a TV series expert? Test your knowledge with this fun and challenging quiz! From legendary 
         quotes to award-winning films, see if you can pick the right answers and prove you're the ultimate entertainment fan!</p>
