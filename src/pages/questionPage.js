@@ -76,7 +76,7 @@ export const initQuestionPage = () => {
 
   const skipQuestionButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   skipQuestionButton.addEventListener('click', skipQuestion);
-  
+
   updateCurrentScore();
 };
 
@@ -95,12 +95,12 @@ const getResult = () => {
 const updateCurrentScore = () => {
   const currentScore = document.getElementById(CURRENT_SCORE_ID);
   currentScore.textContent = quizData.score;
-}
+};
 
 const skipQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   quizData.currentQuestionIndex = quizData.currentQuestionIndex;
-  
+
   showCorrectAnswer(currentQuestion.correct);
 
   document.querySelector(`#${QUESTION_EXPLANATION_ID}`).style.display = 'block';
