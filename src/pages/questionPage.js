@@ -47,8 +47,8 @@ export const initQuestionPage = () => {
     checkAnswer(event, currentQuestion, nextQuestionButton);
   });
 
-  const nav = createNavigation(quizData.score);
-  userInterface.appendChild(nav);
+  const nav = createNavigation();
+  document.getElementById('question-container').appendChild(nav);
 
   // Create the progress elements and append them to PROGRESS_BAR_ID
   const progressBar = document.getElementById(PROGRESS_BAR_ID);
@@ -74,6 +74,9 @@ export const initQuestionPage = () => {
     localStorage.clear();
   });
 
+  const skipQuestionButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+  skipQuestionButton.addEventListener('click', skipQuestion);
+
   updateCurrentScore();
 };
 
@@ -89,9 +92,32 @@ const getResult = () => {
   initResultPage();
 };
 
+const updateCurrentScore = () => {
+  const currentScore = document.getElementById(CURRENT_SCORE_ID);
+  currentScore.textContent = quizData.score;
+};
+
+const skipQuestion = () => {
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+  quizData.currentQuestionIndex = quizData.currentQuestionIndex;
+
+  showCorrectAnswer(currentQuestion.correct);
+
+  document.querySelector(`#${QUESTION_EXPLANATION_ID}`).style.display = 'block';
+
+  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  nextQuestionButton.disabled = false;
+};
+
 const selectAnswer = (event, currentQuestion, nextButton) => {
   const answerElement = event.target;
   const answerKey = event.target.dataset.key;
+
+  //anti-cheat
+  if (localStorage.getItem('savedAnswer') !== null) {
+    nextButton.disabled = false;
+    return localStorage.getItem('savedAnswer');
+  }
 
   // Only proceed if the answer hasn't been selected yet, and the target is an <LI> element
   if (currentQuestion.selected || answerElement.tagName != 'LI') return;
@@ -99,6 +125,7 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
   currentQuestion.selected = answerKey;
   nextButton.disabled = false;
   answerElement.classList.add('selected');
+  localStorage.setItem('savedAnswer', answerKey);
 
   return answerKey;
 };
@@ -135,13 +162,13 @@ const createProgress = (key, question) => {
     return createProgressElement('current');
   }
 
-  if (question.selected === null){
+  if (question.selected === null) {
     return createProgressElement();
   }
 
   if (question.selected === question.correct) {
-     return  createProgressElement('correct');
+    return createProgressElement('correct');
   }
-  
+
   return createProgressElement('incorrect');
 };
