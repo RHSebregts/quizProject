@@ -83,6 +83,7 @@ export const initQuestionPage = () => {
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   localStorage.setItem('quizData', JSON.stringify(quizData));
+  localStorage.removeItem('savedAnswer');
   initQuestionPage();
 };
 
@@ -107,6 +108,7 @@ const skipQuestion = () => {
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.disabled = false;
+  localStorage.removeItem('savedAnswer');
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
