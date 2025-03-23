@@ -135,13 +135,13 @@ const createProgress = (key, question) => {
     return createProgressElement('current');
   }
 
-  if (question.selected === null){
+  if (question.selected === null) {
     return createProgressElement();
   }
 
   if (question.selected === question.correct) {
-     return  createProgressElement('correct');
+    return createProgressElement('correct');
   }
-  
+
   return createProgressElement('incorrect');
 };
