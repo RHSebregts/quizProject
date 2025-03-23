@@ -94,11 +94,11 @@ const getResult = () => {
 
 const skipQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  quizData.currentQuestionIndex = quizData.currentQuestionIndex;
   
   showCorrectAnswer(currentQuestion.correct);
 
-  document.getElementById(QUESTION_EXPLANATION_ID).classList.add('visible');
+  document.querySelector(`#${QUESTION_EXPLANATION_ID}`).style.display = 'block';
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.disabled = false;
