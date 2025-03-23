@@ -49,3 +49,4 @@ const resetQuizData = () => {
 
   localStorage.clear();
 };
+
