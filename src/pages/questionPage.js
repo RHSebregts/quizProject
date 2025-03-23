@@ -115,6 +115,7 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
 
   //anti-cheat
   if (localStorage.getItem('savedAnswer') !== null) {
+    nextButton.disabled = false;
     return localStorage.getItem('savedAnswer');
   }
 
