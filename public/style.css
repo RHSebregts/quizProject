@@ -95,15 +95,16 @@ h1 {
 
 .wrapper {
   margin: 0 auto;
-  padding: 0 1rem 0 1rem;
+  padding: 1rem;
   max-width: 87.5rem;
 }
 
 #user-interface {
   font-family: 'Roboto', sans-serif;
   display: flex;
+  flex-grow: 1;
+  max-width: 75rem;
   flex-direction: column;
-  flex: 1;
   max-height: 43.88rem;
   font-size: 1.25rem;
   color: white;
@@ -153,12 +154,23 @@ h1 {
 #user-name {
   text-align: left;
   background-color: white;
+  border: 2px solid #212020;
   max-width: 44.3rem;
   width: 100%;
   margin: 0 auto;
   padding: 1rem;
   border-radius: 0.63rem;
   margin-bottom: 3.87rem;
+  transition: all 0.25s ease-in-out;
+}
+
+#user-name.empty-field {
+  border: 2px solid #b51313;
+  box-shadow: 0 0 15px 0px #b51313;
+}
+
+#user-name.empty-field::placeholder {
+  color: #b51313;
 }
 
 #start-quiz-button,
@@ -313,47 +325,76 @@ h1 {
   border-color: #1c9a10;
 }
 
-nav {
-  height: 7%;
+.quiz__nav {
+  min-height: 2.3rem;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #b51313;
+  border-radius: 0 0 0.4rem 0.4rem;
+  color: #fff;
+  align-items: center;
+  position: relative;
+}
+
+#progress-bar {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 3vmin;
-  font-size: 1.6vmin;
-  background-color: #b51313;
-  border-radius: 0 0 0.8vmin 0.8vmin;
+  gap: 1rem;
 }
 
-#score-buttons-container {
-  display: flex;
-  align-items: center;
-  gap: 2vmin;
-}
-
-#score-buttons-container button {
-  color: #fff;
-  font-size: 1.2vmin;
-  font-weight: 600;
-  padding: 0.7vmin 2.7vmin;
-  background-color: transparent;
+#progress-bar li {
+  width: 1rem;
+  height: 1rem;
   border: 2px solid #fff;
-  border-radius: 10px;
+  border-radius: 50%;
+}
+
+#progress-bar li.current {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #fff;
+}
+
+#progress-bar li.incorrect {
+  background-color: #ff0000;
+}
+
+#progress-bar li.correct {
+  background-color: #1c9a10;
+}
+
+.quiz__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.quiz__controls button {
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 1.3rem;
+  background-color: transparent;
+  border: 0.125rem solid #fff;
+  border-radius: 0.6rem;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
 
-#score-buttons-container button:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-#score-buttons-container button:not(:disabled):hover {
+.quiz__controls button:hover {
   color: #000;
   background-color: #fff;
 }
 
-/* =-=-=-=-= Result Page Styling =-=-=-=-= */
+.quiz__controls button:disabled {
+  background-color: #d04a4a;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
 
 .resultPage {
   display: flex;
