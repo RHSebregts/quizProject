@@ -20,23 +20,28 @@ export const initWelcomePage = () => {
 };
 
 const startQuiz = () => {
+  resetQuizData();
+
   const userName = document.querySelector(`#${USER_NAME_ID}`);
   quizData.userName = userName.value;
 
-  resetQuizData();
-  localStorage.setItem('quizData', JSON.stringify(quizData));
-
   const userNameRequired = () => {
     userName.placeholder = 'This field is required';
-    userName.classList.add('empty-field'); // frontend needs to add this class and style it accordingly
+    userName.classList.add('empty-field');
   };
-  userName.value.length === 0 ? userNameRequired() : initQuestionPage();
 
+  if (userName.value.length === 0) {
+    userNameRequired();
+  } else {
+    localStorage.setItem('quizData', JSON.stringify(quizData));
+    initQuestionPage();
+  }
 };
 
 const resetQuizData = () => {
   quizData.currentQuestionIndex = 0;
   quizData.score = 0;
+  quizData.userName = '';
 
   quizData.questions.forEach((element) => {
     element.selected = null;
@@ -44,4 +49,3 @@ const resetQuizData = () => {
 
   localStorage.clear();
 };
-
