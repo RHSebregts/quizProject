@@ -113,12 +113,18 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
   const answerElement = event.target;
   const answerKey = event.target.dataset.key;
 
+  //anti-cheat
+  if (localStorage.getItem('savedAnswer') !== null) {
+    return localStorage.getItem('savedAnswer');
+  }
+
   // Only proceed if the answer hasn't been selected yet, and the target is an <LI> element
   if (currentQuestion.selected || answerElement.tagName != 'LI') return;
   // Set the selected answer and add the 'selected' class
   currentQuestion.selected = answerKey;
   nextButton.disabled = false;
   answerElement.classList.add('selected');
+  localStorage.setItem('savedAnswer', answerKey);
 
   return answerKey;
 };
