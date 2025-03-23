@@ -22,10 +22,6 @@ html {
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
     url('../src/assets/background.jpg') no-repeat center/cover;
 }
@@ -94,10 +90,13 @@ h1 {
 }
 
 .wrapper {
-  margin: 0 auto;
-  padding: 1rem;
-  max-width: 87.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+max-width: 87.5em;
+min-height: 100vh;
 }
+
 
 #user-interface {
   font-family: 'Roboto', sans-serif;
