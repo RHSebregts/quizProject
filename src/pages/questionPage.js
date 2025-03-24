@@ -101,7 +101,9 @@ const updateCurrentScore = () => {
 const skipQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   quizData.currentQuestionIndex = quizData.currentQuestionIndex;
-  currentQuestion.skipped = true;
+  let fetchedQuizData = JSON.parse(localStorage.getItem('quizData'));
+  fetchedQuizData.questions[quizData.currentQuestionIndex].skipped = true;
+  localStorage.setItem('quizData', JSON.stringify(fetchedQuizData));
 
   showCorrectAnswer(currentQuestion.correct);
 
@@ -109,7 +111,6 @@ const skipQuestion = () => {
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.disabled = false;
-  localStorage.setItem('quizData', JSON.stringify(quizData));
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
