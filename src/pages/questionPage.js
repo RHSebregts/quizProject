@@ -111,7 +111,6 @@ const skipQuestion = () => {
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
-  //anti-cheat
   if (
     JSON.parse(localStorage.getItem('quizData')).questions[
       quizData.currentQuestionIndex
@@ -180,6 +179,8 @@ const createProgress = (key, question) => {
 
   return createProgressElement('incorrect');
 };
+
+//antiCheat function that runs on load
 
 const antiCheat = () => {
   if (
