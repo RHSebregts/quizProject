@@ -205,7 +205,7 @@ const antiCheat = () => {
   const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
 
   if (currentQuestion.skipped === true) {
-    skipQuestion(currentQuestion);
+    skipQuestion();
   }
 
   if (currentQuestion.selected !== null) {
