@@ -83,7 +83,6 @@ export const initQuestionPage = () => {
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   localStorage.setItem('quizData', JSON.stringify(quizData));
-  localStorage.removeItem('savedAnswer');
   initQuestionPage();
 };
 
@@ -108,7 +107,6 @@ const skipQuestion = () => {
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.disabled = false;
-  localStorage.removeItem('savedAnswer');
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
@@ -116,9 +114,15 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
   const answerKey = event.target.dataset.key;
 
   //anti-cheat
-  if (localStorage.getItem('savedAnswer') !== null) {
+  if (
+    JSON.parse(localStorage.getItem('quizData')).questions[
+      quizData.currentQuestionIndex
+    ].selected !== null
+  ) {
     nextButton.disabled = false;
-    return localStorage.getItem('savedAnswer');
+    return JSON.parse(localStorage.getItem('quizData')).questions[
+      quizData.currentQuestionIndex
+    ].selected;
   }
 
   // Only proceed if the answer hasn't been selected yet, and the target is an <LI> element
@@ -127,7 +131,8 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
   currentQuestion.selected = answerKey;
   nextButton.disabled = false;
   answerElement.classList.add('selected');
-  localStorage.setItem('savedAnswer', answerKey);
+  quizData.questions[quizData.currentQuestionIndex].selected = answerKey;
+  localStorage.setItem('quizData', JSON.stringify(quizData));
 
   return answerKey;
 };
