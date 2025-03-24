@@ -25,7 +25,7 @@ export const quizData = {
         'For which movie did Leonardo DiCaprio finally win his first Academy Award for Best Actor?',
       answers: {
         a: 'The Revenant',
-        b: 'The Inception',
+        b: 'Inception',
         c: 'What’s Eating Gilbert Grape',
         d: 'Once Upon a Time in Hollywood',
       },

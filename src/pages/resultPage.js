@@ -40,10 +40,25 @@ export const initResultPage = () => {
   } else if (score >= 100 && score <= 120) {
     resultParagraph.innerHTML = `You are a genius <b>${userName}!</b> You scored <b>${score}/${totalScore}!</b> Hollywood Hall of Fame! You crushed it! You’re the ultimate movie and TV expert. Someone get this person a red carpet and an acceptance speech!`;
     resultImage.src = './public/assets/result-images/genius.webp';
+    confettiBomb();
   }
 
   document.getElementById(RESTART_BUTTON_ID).addEventListener('click', () => {
     localStorage.clear();
     initWelcomePage();
   });
+};
+
+const confettiBomb = () => {
+  setInterval(() => {
+    confetti({
+      particleCount: 100,
+      startVelocity: 30,
+      spread: 360,
+      origin: {
+        x: Math.random(),
+        y: Math.random() - 0.2,
+      },
+    });
+  }, 1500);
 };
