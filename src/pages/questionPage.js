@@ -15,6 +15,7 @@ import { initWelcomePage } from '../pages/welcomePage.js';
 import { initResultPage } from '../pages/resultPage.js';
 import { quizData } from '../data.js';
 import { createNavigation } from '../views/navigationView.js';
+import { SoundManager } from '../views/soundManager.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -32,8 +33,6 @@ export const initQuestionPage = () => {
   );
   userInterface.appendChild(questionElement);
 
-  
-
   // Create the answers and append them to ANSWERS_LIST_ID
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
@@ -42,7 +41,7 @@ export const initQuestionPage = () => {
   }
 
   answersListElement.addEventListener('click', (event) => {
-    checkAnswer(event, currentQuestion, nextQuestionButton);
+    checkAnswer(event, currentQuestion, nextQuestionButton, soundManager);
   });
 
   const nav = createNavigation();
@@ -75,6 +74,8 @@ export const initQuestionPage = () => {
   const skipQuestionButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   skipQuestionButton.addEventListener('click', skipQuestion);
 
+  const soundManager = new SoundManager();
+
   updateCurrentScore();
 };
 
@@ -86,7 +87,6 @@ const nextQuestion = () => {
 };
 
 const getResult = () => {
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   localStorage.setItem('quizData', JSON.stringify(quizData));
   initResultPage();
 };
@@ -112,15 +112,14 @@ const skipQuestion = () => {
 const selectAnswer = (event, currentQuestion, nextButton) => {
   const answerElement = event.target;
   const answerKey = event.target.dataset.key;
-
+  // Only proceed if the answer hasn't been selected yet, and the target is an <LI> element
+  if (currentQuestion.selected || answerElement.tagName != 'LI') return;
   //anti-cheat
   if (localStorage.getItem('savedAnswer') !== null) {
     nextButton.disabled = false;
     return localStorage.getItem('savedAnswer');
   }
 
-  // Only proceed if the answer hasn't been selected yet, and the target is an <LI> element
-  if (currentQuestion.selected || answerElement.tagName != 'LI') return;
   // Set the selected answer and add the 'selected' class
   currentQuestion.selected = answerKey;
   nextButton.disabled = false;
@@ -130,16 +129,18 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
   return answerKey;
 };
 
-const checkAnswer = (event, currentQuestion, nextButton) => {
+const checkAnswer = (event, currentQuestion, nextButton, soundManager) => {
   const selectedAnswer = selectAnswer(event, currentQuestion, nextButton);
   if (!selectedAnswer) return; // if the answer selected -> function selectAnswer return undefined, so nothing will happen;
   if (selectedAnswer === currentQuestion.correct) {
     showCorrectAnswer(selectedAnswer);
+    soundManager.play('correctSound');
     quizData.score += 10;
     updateCurrentScore();
   } else {
     showIncorrectAnswer(selectedAnswer);
     showCorrectAnswer(currentQuestion.correct);
+    soundManager.play('incorrectSound');
   }
 };
 

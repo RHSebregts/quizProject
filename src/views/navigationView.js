@@ -6,6 +6,7 @@ import {
   RESTART_BUTTON_ID,
 } from '../constants.js';
 
+
 export const createNavigation = () => {
   const nav = document.createElement('nav');
   nav.classList.add('quiz__nav');
