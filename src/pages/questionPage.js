@@ -78,6 +78,7 @@ export const initQuestionPage = () => {
   skipQuestionButton.addEventListener('click', skipQuestion);
 
   updateCurrentScore();
+  antiCheat();
 };
 
 const nextQuestion = () => {
@@ -110,9 +111,6 @@ const skipQuestion = () => {
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
-  const answerElement = event.target;
-  const answerKey = event.target.dataset.key;
-
   //anti-cheat
   if (
     JSON.parse(localStorage.getItem('quizData')).questions[
@@ -124,6 +122,9 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
       quizData.currentQuestionIndex
     ].selected;
   }
+
+  const answerElement = event.target;
+  const answerKey = event.target.dataset.key;
 
   // Only proceed if the answer hasn't been selected yet, and the target is an <LI> element
   if (currentQuestion.selected || answerElement.tagName != 'LI') return;
@@ -178,4 +179,17 @@ const createProgress = (key, question) => {
   }
 
   return createProgressElement('incorrect');
+};
+
+const antiCheat = () => {
+  if (
+    JSON.parse(localStorage.getItem('quizData')).questions[
+      quizData.currentQuestionIndex
+    ].selected !== null
+  ) {
+    const event = null;
+    const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+    const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+    checkAnswer(event, currentQuestion, nextButton);
+  }
 };
