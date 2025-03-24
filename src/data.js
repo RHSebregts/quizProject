@@ -17,6 +17,7 @@ export const quizData = {
       explanation:
         'There are 11 installments in the Fast & Furious franchise, including 10 main films (The Fast and the Furious to Fast X) and one spin-off (Hobbs & Shaw)',
       imgLink: 'public/assets/question-images/0.jpg',
+      skipped: null,
     },
 
     {
@@ -33,6 +34,7 @@ export const quizData = {
       explanation:
         'Leonardo DiCaprio won his first Academy Award for Best Actor for the movie "The Revenant" (2015) at the 88th Academy Awards in 2016.',
       imgLink: 'public/assets/question-images/1.jpg',
+      skipped: null,
     },
 
     {
@@ -49,6 +51,7 @@ export const quizData = {
       explanation:
         'Walter White, played by Bryan Cranston, is the main character in Breaking Bad. He adopts the alias "Heisenberg" as he transforms from a high school chemistry teacher into a feared drug kingpin',
       imgLink: 'public/assets/question-images/2.jpg',
+      skipped: null,
     },
 
     {
@@ -65,6 +68,7 @@ export const quizData = {
       explanation:
         "Vibranium is a rare and powerful metal in the Marvel Cinematic Universe (MCU). Captain America's shield is made from it, and it originates from the fictional African nation of Wakanda, which plays a major role in Black Panther.",
       imgLink: 'public/assets/question-images/3.jpg',
+      skipped: null,
     },
 
     {
@@ -80,6 +84,7 @@ export const quizData = {
       explanation:
         'Winter is Coming is one of the most iconic phrases from Game of Thrones. It is the motto of House Stark and serves as a warning about the harsh winters in Westeros, as well as the coming threats beyond the Wall.',
       imgLink: 'public/assets/question-images/4.jpg',
+      skipped: null,
     },
 
     {
@@ -95,6 +100,7 @@ export const quizData = {
       explanation:
         'The score for Tenet (2020) was composed by Ludwig Göransson',
       imgLink: 'public/assets/question-images/5.jpg',
+      skipped: null,
     },
 
     {
@@ -110,6 +116,7 @@ export const quizData = {
       explanation:
         'The modern adaptations of Dune (2021, 2024) and Blade Runner 2049 (2017) were directed by Denis Villeneuve',
       imgLink: 'public/assets/question-images/6.jpg',
+      skipped: null,
     },
 
     {
@@ -125,6 +132,7 @@ export const quizData = {
       explanation:
         'The main song from Cyberpunk: Edgerunners is "I Really Want to Stay at Your House" by Rosa Walton (of the band Let’s Eat Grandma)',
       imgLink: 'public/assets/question-images/7.jpg',
+      skipped: null,
     },
 
     {
@@ -140,6 +148,7 @@ export const quizData = {
       explanation:
         'The first game in Squid Game was "Red Light, Green Light", where players had to move toward a finish line while a giant robotic doll monitored them',
       imgLink: 'public/assets/question-images/8.jpg',
+      skipped: null,
     },
 
     {
@@ -155,6 +164,7 @@ export const quizData = {
       explanation:
         ' The name was revealed in The Mandalorian Season 2, Episode 5, during a conversation between Grogu and Ahsoka Tano',
       imgLink: 'public/assets/question-images/9.jpg',
+      skipped: null,
     },
 
     {
@@ -171,6 +181,7 @@ export const quizData = {
       explanation:
         'The name of the coffee shop where the main characters of Friends often hang out is Central Perk',
       imgLink: 'public/assets/question-images/10.jpg',
+      skipped: null,
     },
 
     {
@@ -186,6 +197,7 @@ export const quizData = {
       explanation:
         'Luke Skywalker was born on an obscure planetoid deep in the Outer Rim',
       imgLink: 'public/assets/question-images/11.jpg',
+      skipped: null,
     },
   ],
 };

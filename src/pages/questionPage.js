@@ -101,6 +101,7 @@ const updateCurrentScore = () => {
 const skipQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   quizData.currentQuestionIndex = quizData.currentQuestionIndex;
+  currentQuestion.skipped = true;
 
   showCorrectAnswer(currentQuestion.correct);
 
@@ -108,6 +109,7 @@ const skipQuestion = () => {
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.disabled = false;
+  localStorage.setItem('quizData', JSON.stringify(quizData));
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
@@ -183,14 +185,14 @@ const createProgress = (key, question) => {
 //antiCheat function that runs on load
 
 const antiCheat = () => {
-  if (
-    JSON.parse(localStorage.getItem('quizData')).questions[
-      quizData.currentQuestionIndex
-    ].selected !== null
-  ) {
-    const event = null;
-    const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-    const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  const parsedData = JSON.parse(localStorage.getItem('quizData'));
+  const event = null;
+  const currentQuestion = parsedData.questions[quizData.currentQuestionIndex];
+  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  if (currentQuestion.skipped === true) {
+    skipQuestion();
+  }
+  if (currentQuestion.selected !== null) {
     checkAnswer(event, currentQuestion, nextButton);
   }
 };
