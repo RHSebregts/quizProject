@@ -78,6 +78,7 @@ export const initQuestionPage = () => {
   skipQuestionButton.addEventListener('click', skipQuestion);
 
   updateCurrentScore();
+  antiCheat();
 };
 
 const nextQuestion = () => {
@@ -100,6 +101,9 @@ const updateCurrentScore = () => {
 const skipQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   quizData.currentQuestionIndex = quizData.currentQuestionIndex;
+  let fetchedQuizData = JSON.parse(localStorage.getItem('quizData'));
+  fetchedQuizData.questions[quizData.currentQuestionIndex].skipped = true;
+  localStorage.setItem('quizData', JSON.stringify(fetchedQuizData));
 
   showCorrectAnswer(currentQuestion.correct);
 
@@ -110,10 +114,6 @@ const skipQuestion = () => {
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
-  const answerElement = event.target;
-  const answerKey = event.target.dataset.key;
-
-  //anti-cheat
   if (
     JSON.parse(localStorage.getItem('quizData')).questions[
       quizData.currentQuestionIndex
@@ -124,6 +124,9 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
       quizData.currentQuestionIndex
     ].selected;
   }
+
+  const answerElement = event.target;
+  const answerKey = event.target.dataset.key;
 
   // Only proceed if the answer hasn't been selected yet, and the target is an <LI> element
   if (currentQuestion.selected || answerElement.tagName != 'LI') return;
@@ -178,4 +181,19 @@ const createProgress = (key, question) => {
   }
 
   return createProgressElement('incorrect');
+};
+
+//antiCheat function that runs on load
+
+const antiCheat = () => {
+  const parsedData = JSON.parse(localStorage.getItem('quizData'));
+  const event = null;
+  const currentQuestion = parsedData.questions[quizData.currentQuestionIndex];
+  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  if (currentQuestion.skipped === true) {
+    skipQuestion();
+  }
+  if (currentQuestion.selected !== null) {
+    checkAnswer(event, currentQuestion, nextButton);
+  }
 };
