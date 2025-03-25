@@ -23,7 +23,6 @@ export const initQuestionPage = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const currentNumberQuestion = quizData.currentQuestionIndex + 1;
 
-  // Create question page structure and write the question itself
   const questionElement = createQuestionElement(
     currentQuestion.text,
     currentNumberQuestion,
@@ -32,11 +31,9 @@ export const initQuestionPage = () => {
   );
   userInterface.appendChild(questionElement);
 
-  // Add the question's explanation
   const questionExplanation = document.getElementById(QUESTION_EXPLANATION_ID);
   questionExplanation.textContent = currentQuestion.explanation;
 
-  // Create the answers and append them to ANSWERS_LIST_ID
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
@@ -50,7 +47,7 @@ export const initQuestionPage = () => {
   const nav = createNavigation();
   document.getElementById('question-container').appendChild(nav);
 
-  // Create the progress elements and append them to PROGRESS_BAR_ID
+  
   const progressBar = document.getElementById(PROGRESS_BAR_ID);
   const getStoredData = JSON.parse(localStorage.getItem('quizData'));
 
@@ -182,8 +179,6 @@ const createProgress = (key, question) => {
 
   return createProgressElement('incorrect');
 };
-
-//antiCheat function that runs on load
 
 const antiCheat = () => {
   const parsedData = JSON.parse(localStorage.getItem('quizData'));
