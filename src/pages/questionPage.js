@@ -46,7 +46,9 @@ export const initQuestionPage = () => {
 
   const soundManager = new SoundManager();
   answersListElement.addEventListener('click', (event) => {
-    checkAnswer(event, currentQuestion, nextQuestionButton, soundManager);
+    if (currentQuestion.selected == null) {
+      checkAnswer(event, currentQuestion, nextQuestionButton, soundManager);
+    }
   });
 
   const nav = createNavigation();
@@ -72,8 +74,8 @@ export const initQuestionPage = () => {
 
   const restartQuizButton = document.getElementById(RESTART_BUTTON_ID);
   restartQuizButton.addEventListener('click', () => {
-    initWelcomePage();
     localStorage.clear();
+    initWelcomePage();
   });
 
   const skipQuestionButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
@@ -98,21 +100,29 @@ const getResult = () => {
 const updateCurrentScore = () => {
   const currentScore = document.getElementById(CURRENT_SCORE_ID);
   currentScore.textContent = quizData.score;
+  localStorage.setItem('quizData', JSON.stringify(quizData));
 };
 
 const skipQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex;
-  let fetchedQuizData = JSON.parse(localStorage.getItem('quizData'));
-  fetchedQuizData.questions[quizData.currentQuestionIndex].skipped = true;
-  localStorage.setItem('quizData', JSON.stringify(fetchedQuizData));
+
+  quizData.questions[quizData.currentQuestionIndex].skipped = true;
+  quizData.questions[quizData.currentQuestionIndex].selected = 'skipped';
+  localStorage.setItem('quizData', JSON.stringify(quizData));
 
   showCorrectAnswer(currentQuestion.correct);
+
+  document
+    .querySelector(`li[data-key=${currentQuestion.correct}]`)
+    .classList.add('selected');
 
   document.querySelector(`#${QUESTION_EXPLANATION_ID}`).style.display = 'block';
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.disabled = false;
+
+  const skipQuestionButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+  skipQuestionButton.disabled = true;
 };
 
 const selectAnswer = (event, currentQuestion, nextButton) => {
@@ -150,11 +160,15 @@ const checkAnswer = (event, currentQuestion, nextButton, soundManager) => {
     soundManager.play('correct');
     quizData.score += 10;
     updateCurrentScore();
+    confettiBomb();
   } else {
     showIncorrectAnswer(selectedAnswer);
     soundManager.play('incorrect');
     showCorrectAnswer(currentQuestion.correct);
   }
+
+  const skipQuestionButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+  skipQuestionButton.disabled = true;
 };
 
 const showCorrectAnswer = (correctAnswer) => {
@@ -176,7 +190,7 @@ const createProgress = (key, question) => {
     return createProgressElement('current');
   }
 
-  if (question.selected === null) {
+  if (question.selected === null || question.selected === 'skipped') {
     return createProgressElement();
   }
 
@@ -191,13 +205,26 @@ const createProgress = (key, question) => {
 
 const antiCheat = () => {
   const parsedData = JSON.parse(localStorage.getItem('quizData'));
-  const event = null;
   const currentQuestion = parsedData.questions[quizData.currentQuestionIndex];
   const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+
   if (currentQuestion.skipped === true) {
     skipQuestion();
   }
+
   if (currentQuestion.selected !== null) {
-    checkAnswer(event, currentQuestion, nextButton, soundManager);
+    checkAnswer(null, currentQuestion, nextButton, soundManager);
+    confetti.reset();
+    document
+      .querySelector(`li[data-key=${currentQuestion.selected}]`)
+      .classList.add('selected');
   }
+};
+
+const confettiBomb = () => {
+  confetti({
+    particleCount: 200,
+    startVelocity: 30,
+    spread: 360,
+  });
 };

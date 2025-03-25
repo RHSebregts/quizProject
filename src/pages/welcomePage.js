@@ -45,6 +45,7 @@ const resetQuizData = () => {
 
   quizData.questions.forEach((element) => {
     element.selected = null;
+    element.skipped = false;
   });
 
   localStorage.clear();
