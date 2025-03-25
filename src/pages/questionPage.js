@@ -51,7 +51,6 @@ export const initQuestionPage = () => {
   const nav = createNavigation();
   document.getElementById('question-container').appendChild(nav);
 
-  
   const progressBar = document.getElementById(PROGRESS_BAR_ID);
   const getStoredData = JSON.parse(localStorage.getItem('quizData'));
 
