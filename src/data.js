@@ -15,7 +15,7 @@ export const quizData = {
       correct: 'd',
       selected: null,
       explanation:
-        'There are 11 installments in the Fast & Furious franchise, including 10 main films (The Fast and the Furious to Fast X) and one spin-off (Hobbs & Shaw)',
+        'There are 11 installments in the Fast & Furious franchise, including 10 main films (The Fast and the Furious to Fast X) and one spin-off (Hobbs & Shaw).',
       imgLink: 'public/assets/question-images/0.jpg',
       skipped: false,
     },
@@ -32,7 +32,7 @@ export const quizData = {
       correct: 'a',
       selected: null,
       explanation:
-        'Leonardo DiCaprio won his first Academy Award for Best Actor for the movie "The Revenant" (2015) at the 88th Academy Awards in 2016.',
+        'Leonardo DiCaprio won his first Academy Award for Best Actor for the movie "The Revenant" (2015) at the 88th Academy Awards in 2016. He played the role of Hugh Glass, a frontiersman on a fur trading expedition in the 1820s.',
       imgLink: 'public/assets/question-images/1.jpg',
       skipped: false,
     },
@@ -49,7 +49,7 @@ export const quizData = {
       correct: 'b',
       selected: null,
       explanation:
-        'Walter White, played by Bryan Cranston, is the main character in Breaking Bad. He adopts the alias "Heisenberg" as he transforms from a high school chemistry teacher into a feared drug kingpin',
+        'Walter White, played by Bryan Cranston, is the main character in Breaking Bad. He adopts the alias "Heisenberg" as he transforms from a high school chemistry teacher into a feared drug kingpin.',
       imgLink: 'public/assets/question-images/2.jpg',
       skipped: false,
     },
@@ -98,7 +98,7 @@ export const quizData = {
       correct: 'b',
       selected: null,
       explanation:
-        'The score for Tenet was composed by Ludwig Göransson, who is known for his work on Black Panther, The Mandalorian, and other films and TV shows and he is named after Ludwig van Beethoven',
+        'The score for Tenet was composed by Ludwig Göransson, who is known for his work on Black Panther, The Mandalorian, and other films and TV shows and he is named after Ludwig van Beethoven.',
       imgLink: 'public/assets/question-images/5.jpg',
       skipped: false,
     },
@@ -114,7 +114,7 @@ export const quizData = {
       correct: 'a',
       selected: null,
       explanation:
-        'The modern adaptations of Dune (2021, 2024) and Blade Runner 2049 (2017) were directed by Denis Villeneuve',
+        'The modern adaptations of Dune (2021, 2024) and Blade Runner 2049 (2017) were directed by Denis Villeneuve.',
       imgLink: 'public/assets/question-images/6.jpg',
       skipped: false,
     },
@@ -130,7 +130,7 @@ export const quizData = {
       correct: 'd',
       selected: null,
       explanation:
-        'The main song from Cyberpunk: Edgerunners is "I Really Want to Stay at Your House" by Rosa Walton (of the band Let’s Eat Grandma)',
+        'The main song from Cyberpunk: Edgerunners is "I Really Want to Stay at Your House" by Rosa Walton (of the band Let’s Eat Grandma).',
       imgLink: 'public/assets/question-images/7.jpg',
       skipped: false,
     },
@@ -146,7 +146,7 @@ export const quizData = {
       correct: 'b',
       selected: null,
       explanation:
-        'The first game in Squid Game was "Red Light, Green Light", where players had to move toward a finish line while a giant robotic doll monitored them',
+        'The first game in Squid Game was "Red Light, Green Light", where players had to move toward a finish line while a giant robotic doll monitored them.',
       imgLink: 'public/assets/question-images/8.jpg',
       skipped: false,
     },
@@ -162,7 +162,7 @@ export const quizData = {
       correct: 'c',
       selected: null,
       explanation:
-        ' The name was revealed in The Mandalorian Season 2, Episode 5, during a conversation between Grogu and Ahsoka Tano',
+        ' The name was revealed in The Mandalorian Season 2, Episode 5, during a conversation between Grogu and Ahsoka Tano. Grogu is a Force-sensitive being of the same species as Yoda and is now known by his real name.',
       imgLink: 'public/assets/question-images/9.jpg',
       skipped: false,
     },
@@ -179,7 +179,7 @@ export const quizData = {
       correct: 'b',
       selected: null,
       explanation:
-        'The main characters of Friends often hang out at Central Perk, a coffee shop in New York City',
+        'The main characters of Friends often hang out at Central Perk, a coffee shop in New York City. Gunther, who played the barista role at Central Perk, had actually worked as a barista at a Hollywood coffee shop called the Bourgeois Pig.',
       imgLink: 'public/assets/question-images/10.jpg',
       skipped: false,
     },
@@ -195,7 +195,7 @@ export const quizData = {
       correct: 'd',
       selected: null,
       explanation:
-        'Luke Skywalker was born on an obscure planetoid deep in the Outer Rim',
+        'Luke Skywalker was born on an obscure planetoid deep in the Outer Rim Territories called Polis Massa. His mother, Padmé Amidala, died shortly after giving birth to him.',
       imgLink: 'public/assets/question-images/11.jpg',
       skipped: false,
     },
