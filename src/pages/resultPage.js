@@ -15,6 +15,15 @@ export const initResultPage = () => {
   const resultElement = createResultElement();
   userInterface.appendChild(resultElement);
 
+  showResult();
+
+  document.getElementById(RESTART_BUTTON_ID).addEventListener('click', () => {
+    localStorage.clear();
+    initWelcomePage();
+  });
+};
+
+const showResult = () => {
   let userName = quizData.userName;
   if (userName === '') {
     const getStoredUsername = JSON.parse(localStorage.getItem('quizData'));
@@ -30,14 +39,15 @@ export const initResultPage = () => {
   const resultParagraph = document.getElementById(RESULT_PARAGRAPH_ID);
   const resultImage = document.getElementById(RESULT_IMAGE_ID);
   const totalScore = quizData.questions.length * 10;
-
-  if (score >= 0 && score <= 40) {
+  if (0 <= score <= 40) {
     resultParagraph.innerHTML = `Oops <b>${userName}!</b> You scored <b>${score}/${totalScore}</b>... Have you been watching documentaries only? No worries, grab some popcorn and start catching up!`;
     resultImage.src = './public/assets/result-images/oops.gif';
-  } else if (score >= 50 && score <= 90) {
+  }
+  if (50 <= score <= 90) {
     resultParagraph.innerHTML = `Not bad <b>${userName}!</b> You scored <b>${score}/${totalScore}!</b> Casual Viewer Alert! You know some things, but maybe it’s time for a weekend binge session to level up your entertainment knowledge!`;
     resultImage.src = './public/assets/result-images/notbad.gif';
-  } else if (score >= 100 && score <= 120) {
+  }
+  if (100 <= score <= 120) {
     resultParagraph.innerHTML = `You are a genius <b>${userName}!</b> You scored <b>${score}/${totalScore}!</b> Hollywood Hall of Fame! You crushed it! You’re the ultimate movie and TV expert. Someone get this person a red carpet and an acceptance speech!`;
     resultImage.src = './public/assets/result-images/genius.webp';
     confettiBomb();
