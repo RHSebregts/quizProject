@@ -98,7 +98,7 @@ export const quizData = {
       correct: 'b',
       selected: null,
       explanation:
-        'The score for Tenet (2020) was composed by Ludwig Göransson',
+        'The score for Tenet was composed by Ludwig Göransson, who is known for his work on Black Panther, The Mandalorian, and other films and TV shows and he is named after Ludwig van Beethoven',
       imgLink: 'public/assets/question-images/5.jpg',
       skipped: false,
     },
@@ -173,13 +173,13 @@ export const quizData = {
       answers: {
         a: 'Starbucks',
         b: 'Central Perk',
-        c: 'Peets Coffee',
+        c: 'The Bourgeois Pig',
         d: 'Lavazza',
       },
       correct: 'b',
       selected: null,
       explanation:
-        'The name of the coffee shop where the main characters of Friends often hang out is Central Perk',
+        'The main characters of Friends often hang out at Central Perk, a coffee shop in New York City',
       imgLink: 'public/assets/question-images/10.jpg',
       skipped: false,
     },

@@ -8,17 +8,17 @@ import {
 
 export const createNavigation = () => {
   const nav = document.createElement('nav');
-  nav.classList.add('quiz__nav');
+  nav.classList.add('quiz-nav');
   nav.innerHTML = `
 		  <ul id="${PROGRESS_BAR_ID}"></ul>
 	 
-		  <div class="quiz__controls">
+		  <div class="quiz-controls">
 		  <button id="${RESTART_BUTTON_ID}">Restart the quiz</button>
         <button id="${SKIP_QUESTION_BUTTON_ID}">Skip Question</button>
         <button id="${NEXT_QUESTION_BUTTON_ID}" disabled>Next Question</button>
 		  
 	 
-        <div class="quiz__score">
+        <div class="quiz-score">
           <p>Score: <span id="${CURRENT_SCORE_ID}">0</span></p>
         </div>
       </div>
