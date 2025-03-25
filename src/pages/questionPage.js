@@ -15,6 +15,7 @@ import { initWelcomePage } from '../pages/welcomePage.js';
 import { initResultPage } from '../pages/resultPage.js';
 import { quizData } from '../data.js';
 import { createNavigation } from '../views/navigationView.js';
+import { SoundManager } from '../views/soundManager.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -43,8 +44,9 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
+  const soundManager = new SoundManager();
   answersListElement.addEventListener('click', (event) => {
-    checkAnswer(event, currentQuestion, nextQuestionButton);
+    checkAnswer(event, currentQuestion, nextQuestionButton, soundManager);
   });
 
   const nav = createNavigation();
@@ -140,15 +142,17 @@ const selectAnswer = (event, currentQuestion, nextButton) => {
   return answerKey;
 };
 
-const checkAnswer = (event, currentQuestion, nextButton) => {
+const checkAnswer = (event, currentQuestion, nextButton, soundManager) => {
   const selectedAnswer = selectAnswer(event, currentQuestion, nextButton);
   if (!selectedAnswer) return; // if the answer selected -> function selectAnswer return undefined, so nothing will happen;
   if (selectedAnswer === currentQuestion.correct) {
     showCorrectAnswer(selectedAnswer);
+    soundManager.play('correct');
     quizData.score += 10;
     updateCurrentScore();
   } else {
     showIncorrectAnswer(selectedAnswer);
+    soundManager.play('incorrect');
     showCorrectAnswer(currentQuestion.correct);
   }
 };
@@ -194,6 +198,6 @@ const antiCheat = () => {
     skipQuestion();
   }
   if (currentQuestion.selected !== null) {
-    checkAnswer(event, currentQuestion, nextButton);
+    checkAnswer(event, currentQuestion, nextButton, soundManager);
   }
 };
