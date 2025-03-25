@@ -41,7 +41,6 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
-  const soundManager = new SoundManager();
   answersListElement.addEventListener('click', (event) => {
     if (currentQuestion.selected == null) {
       checkAnswer(event, currentQuestion, nextQuestionButton, soundManager);
@@ -80,6 +79,8 @@ export const initQuestionPage = () => {
   updateCurrentScore();
   antiCheat();
 };
+
+const soundManager = new SoundManager();
 
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
