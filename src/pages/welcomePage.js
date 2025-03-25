@@ -25,17 +25,17 @@ const startQuiz = () => {
   const userName = document.querySelector(`#${USER_NAME_ID}`);
   quizData.userName = userName.value;
 
-  const userNameRequired = () => {
-    userName.placeholder = 'This field is required';
-    userName.classList.add('empty-field');
-  };
-
   if (userName.value.length === 0) {
     userNameRequired();
   } else {
     localStorage.setItem('quizData', JSON.stringify(quizData));
     initQuestionPage();
   }
+};
+
+const userNameRequired = () => {
+  userName.placeholder = 'This field is required';
+  userName.classList.add('empty-field');
 };
 
 const resetQuizData = () => {

@@ -52,10 +52,18 @@ const showResult = () => {
     resultImage.src = './public/assets/result-images/genius.webp';
     confettiBomb();
   }
+
+  document.getElementById(RESTART_BUTTON_ID).addEventListener('click', () => {
+    stopConfetti();
+    localStorage.clear();
+    initWelcomePage();
+  });
 };
 
+let interval;
+
 const confettiBomb = () => {
-  setInterval(() => {
+  interval = setInterval(() => {
     confetti({
       particleCount: 100,
       startVelocity: 30,
@@ -66,4 +74,8 @@ const confettiBomb = () => {
       },
     });
   }, 1500);
+};
+
+export const stopConfetti = () => {
+  clearInterval(interval);
 };
