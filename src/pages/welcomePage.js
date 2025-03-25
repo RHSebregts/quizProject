@@ -25,7 +25,6 @@ const startQuiz = () => {
   const userName = document.querySelector(`#${USER_NAME_ID}`);
   quizData.userName = userName.value;
 
-
   if (userName.value.length === 0) {
     userNameRequired();
   } else {
