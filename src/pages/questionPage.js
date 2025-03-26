@@ -51,7 +51,7 @@ export const initQuestionPage = () => {
     `#${NEXT_QUESTION_BUTTON_ID}`
   );
 
-  if (quizData.currentQuestionIndex + 1 < quizData.questions.length) {
+  if (currentNumberQuestion < quizData.questions.length) {
     nextQuestionButton.addEventListener('click', run.nextQuestion);
   } else {
     nextQuestionButton.textContent = 'Get Result';
