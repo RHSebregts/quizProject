@@ -8,32 +8,32 @@ import { createWelcomeElement } from '../views/welcomeView.js';
 import { initQuestionPage } from './questionPage.js';
 
 export const initWelcomePage = () => {
-  const userInterface = document.getElementById(USER_INTERFACE_ID);
+  const userInterface = document.querySelector(`#${USER_INTERFACE_ID}`);
   userInterface.innerHTML = '';
 
   const welcomeElement = createWelcomeElement();
   userInterface.appendChild(welcomeElement);
 
+  resetQuizData();
+
   document
-    .getElementById(START_QUIZ_BUTTON_ID)
+    .querySelector(`#${START_QUIZ_BUTTON_ID}`)
     .addEventListener('click', startQuiz);
 };
 
 const startQuiz = () => {
-  resetQuizData();
-
   const userName = document.querySelector(`#${USER_NAME_ID}`);
   quizData.userName = userName.value;
 
   if (userName.value.length === 0) {
-    userNameRequired();
+    userNameRequired(userName);
   } else {
     localStorage.setItem('quizData', JSON.stringify(quizData));
     initQuestionPage();
   }
 };
 
-const userNameRequired = () => {
+const userNameRequired = (userName) => {
   userName.placeholder = 'This field is required';
   userName.classList.add('empty-field');
 };

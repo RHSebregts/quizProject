@@ -326,6 +326,23 @@ h1 {
   background-color: #1c9a10;
 }
 
+.audio-control {
+  width: 3vmin;
+  height: 3vmin;
+  background: url(assets/audio-on.svg);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.audio-control.muted {
+  background: url(assets/audio-off.svg);
+}
+
+.audio-control:hover {
+  opacity: 1;
+}
+
 .quiz-controls {
   display: flex;
   justify-content: center;

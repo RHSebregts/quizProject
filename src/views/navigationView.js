@@ -6,12 +6,14 @@ import {
   RESTART_BUTTON_ID,
 } from '../constants.js';
 
-export const createNavigation = () => {
+export const createNavigation = (score) => {
   const nav = document.createElement('nav');
   nav.classList.add('quiz-nav');
   nav.innerHTML = `
 		  <ul id="${PROGRESS_BAR_ID}"></ul>
 	 
+      <div class="audio-control"></div>
+
 		  <div class="quiz-controls">
 		  <button id="${RESTART_BUTTON_ID}">Restart the quiz</button>
         <button id="${SKIP_QUESTION_BUTTON_ID}">Skip Question</button>
@@ -19,7 +21,7 @@ export const createNavigation = () => {
 		  
 	 
         <div class="quiz-score">
-          <p>Score: <span id="${CURRENT_SCORE_ID}">0</span></p>
+          <p>Score: <span id="${CURRENT_SCORE_ID}">${score}</span></p>
         </div>
       </div>
 		`;
