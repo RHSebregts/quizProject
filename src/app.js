@@ -10,12 +10,12 @@ const loadApp = () => {
     const storedQuestionIndex = getStoredData.currentQuestionIndex;
     const questionsLength = quizData.questions.length;
 
-    if (storedQuestionIndex < questionsLength) {
-      quizData.currentQuestionIndex = storedQuestionIndex;
-      quizData.score = getStoredData.score;
-      quizData.userName = getStoredData.userName;
-      quizData.questions = getStoredData.questions;
+    quizData.currentQuestionIndex = storedQuestionIndex;
+    quizData.score = getStoredData.score;
+    quizData.userName = getStoredData.userName;
+    quizData.questions = getStoredData.questions;
 
+    if (storedQuestionIndex < questionsLength) {
       initQuestionPage();
     } else if (storedQuestionIndex >= questionsLength) {
       initResultPage();
